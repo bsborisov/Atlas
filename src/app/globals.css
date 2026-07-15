@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --background-black: #060606;
+  --background-forms: #0e0e0e;
+  --foreground: #ededed;
+  --foreground-darker: rgb(204, 204, 204);
+  --input-background: rgba(241, 241, 241, 0.05);
+  --input-border: rgb(36, 36, 36);
+  --app-main-gradient: rgb(32, 182, 103);
+  --app-main: rgb(0, 182, 103);
+  --app-main-hover: rgb(0, 202, 103);
+  --ghost-hover: rgba(56, 56, 56, 0.08);
+  --app-grey: rgb(167, 167, 167);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-black: var(--background-black);
+  --color-background-forms: var(--background-forms);
+  --color-input-background: var(--input-background);
+  --color-input-border: var(--input-border);
+  --color-title: var(--foreground);
+  --color-subtitle: var(--foreground-darker);
+  --color-primary: var(--app-main);
+  --color-primary-hover: var(--app-main-hover);
+  --color-primary-gradient: var(--app-main-gradient);
+  --color-ghost-hover: var(--ghost-hover);
+  --color-app-grey: var(--app-grey);
+  --font-mont: var(--font-montserrat);
+}
+
+@theme {
+  --spacing-dvb: 100dvb;
+}
+
+@utility shadow-base {
+  text-shadow: rgba(255, 255, 255, 0.25) 0px 1px 6px;
+}
+
+@utility home-stats-border-gradient-bg {
+  background: linear-gradient(18deg, gray, black 50%, gray);
+}
+
+@utility home-stats-gradient-bg {
+  background: linear-gradient(rgb(0, 0, 0) 0%, rgb(18, 18, 18) 100%);
+}
+
+@utility home-hero-bottom-gradient-bg {
+  background: linear-gradient(0deg, rgb(6, 6, 6) 1%, transparent 30.32%);
+}
+
+
+@utility ai-gradient-bg {
+  background: linear-gradient(220deg, var(--color-primary-gradient), rgb(0, 0, 0), rgb(0, 0, 0)) 0% 0% / 225%;
+  animation: 15s ease 0s infinite normal none running ai-gradient-animation;
+
+  @media screen and (min-width: 768px) {
+    background-size: 150%;
+  }
+}
+
+@keyframes ai-gradient-animation {
+  0% {
+    background-position: 0% 81%;
+  }
+
+  50% {
+    background-position: 100% 20%;
+  }
+
+  100% {
+    background-position: 0% 81%;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
