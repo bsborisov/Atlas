@@ -1,4 +1,4 @@
-import { Dashboard } from "@/features/dashboard/components/Dashboard";
+import { DashboardWrapper } from "@/features/dashboard/components/DashboardWrapper";
 import { getStats } from "@/server/services/stats";
 
 
@@ -7,9 +7,9 @@ export default async function DashboardPage() {
   const stats = await getStats();
 
   return (
-    
-    <Dashboard 
-      stats={stats} 
+
+    <DashboardWrapper
+      stats={stats}
     />
   );
 }

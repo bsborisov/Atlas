@@ -1,6 +1,6 @@
 
-import { Header } from "../../features/dashboard/components/Header";
-import { Sidebar } from "../../features/dashboard/components/Sidebar";
+import { Header } from "./Header";
+import { Sidebar } from "./Sidebar/Sidebar";
 
 export function AppShell({
   children,
@@ -8,7 +8,7 @@ export function AppShell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen overflow-hidden bg-primary-dash-gradient ">
 
       <Sidebar />
 
@@ -16,7 +16,7 @@ export function AppShell({
 
         <Header />
 
-        <main className="flex-1 p-6 items-center justify-center">
+        <main className="flex-1 px-6 py-8 items-center justify-center overflow-y-auto">
           {children}
         </main>
 

@@ -7,18 +7,28 @@
   --foreground: #ededed;
   --foreground-darker: rgb(204, 204, 204);
   --input-background: rgba(241, 241, 241, 0.05);
+  --nav-active: rgb(43, 53, 76);
+  --nav-hover: rgba(241, 241, 241, 0.08);
   --input-border: rgb(36, 36, 36);
   --app-main-gradient: rgb(32, 182, 103);
   --app-main: rgb(0, 182, 103);
   --app-main-hover: rgb(0, 202, 103);
-  --ghost-hover: rgba(56, 56, 56, 0.08);
+  --app-white-transparent: rgba(181, 181, 181, 0.3);
+  --app-white-transparent-darker: rgba(181, 181, 181, 0.5);
   --app-grey: rgb(167, 167, 167);
+  --ghost-hover: rgba(56, 56, 56, 0.08);
+  --sidebar: rgb(31, 40, 62);
+  --dashboard-card: rgb(32, 41, 64);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-background-black: var(--background-black);
   --color-background-forms: var(--background-forms);
+  --color-background-sidebar: var(--sidebar);
+  --color-background-dashboard-card: var(--dashboard-card);
+  --color-background-nav-active: var(--nav-active);
+  --color-background-nav-hover: var(--nav-hover);
   --color-input-background: var(--input-background);
   --color-input-border: var(--input-border);
   --color-title: var(--foreground);
@@ -28,11 +38,34 @@
   --color-primary-gradient: var(--app-main-gradient);
   --color-ghost-hover: var(--ghost-hover);
   --color-app-grey: var(--app-grey);
+  --color-app-white-transparent: var(--app-white-transparent);
+  --color-app-white-transparent-darker: var(--app-white-transparent-darker);
   --font-mont: var(--font-montserrat);
 }
 
 @theme {
   --spacing-dvb: 100dvb;
+}
+
+@utility bg-primary-dash-gradient {
+  background: linear-gradient(to left, #1a2035, #141E30, #1a2035);
+}
+
+@utility bg-dash-stats-card-gradient1 {
+  background: linear-gradient(to right, #acbb78, #799f0c);
+  ;
+}
+
+@utility bg-dash-stats-card-gradient2 {
+  background: linear-gradient(to right, #6fb1fc, #4364f7, #0052d4);
+}
+
+@utility bg-dash-stats-card-gradient3 {
+  background: linear-gradient(to right, #a811da, #bf5ae0);
+}
+
+@utility bg-dash-stats-card-gradient4 {
+  background: linear-gradient(to right, #6dd5ed, #2193b0);
 }
 
 @utility shadow-base {

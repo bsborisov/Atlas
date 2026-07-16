@@ -1,4 +1,4 @@
-import { colors } from "@/constants/themeSettings";
+import { colors } from "@/config/themeSettings";
 import { cn } from "@/lib/utils";
 
 type TextProps = React.HTMLAttributes<HTMLSpanElement> & {

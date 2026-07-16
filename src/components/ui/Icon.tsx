@@ -1,4 +1,4 @@
-import { colors, iconSize } from "@/constants/themeSettings";
+import { colors, iconSize } from "@/config/themeSettings";
 import { cn } from "@/lib/utils";
 import { isNumber } from "lodash";
 import InlineSVG from "react-inlinesvg";

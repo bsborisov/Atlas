@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 interface DividerProps {
@@ -5,14 +6,13 @@ interface DividerProps {
   className?: string;
 }
 
-const Divider: React.FC<DividerProps> = ({ vertical, className }) => {
+const Divider: React.FC<DividerProps> = ({ vertical, className = "" }) => {
   return (
     <div
-      className={`bg-neutral-800 ${
-        vertical 
-          ? 'w-px min-w-px' 
-          : 'h-px min-h-px'
-      } ${className}`}
+      className={cn(`bg-neutral-800 ${vertical
+        ? 'w-px min-w-px'
+        : 'h-px min-h-px'
+        } ${className}`)}
     />
   );
 };

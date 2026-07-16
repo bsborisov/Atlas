@@ -5,7 +5,7 @@ import { registerAction } from "@/features/auth/actions/auth";
 import { Button } from "@/components/ui/Button";
 import { ActionError } from "@/types/action";
 import { FormProvider, useForm } from "react-hook-form";
-import FormField from "@/components/ui/FormField";
+import FormField from "@/components/shared/FormField";
 import { Text } from "@/components/ui/Text";
 import { registerSchema, RegisterSchema } from "../schemas/register.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
