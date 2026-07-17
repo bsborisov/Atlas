@@ -47,7 +47,7 @@ export async function registerUser(
 export async function loginUser(
   email: string,
   password: string
-) {
+): Promise<UserDto> {
 
   const user = await prisma.user.findUnique({
     where: {

@@ -10,42 +10,13 @@ import {
   XAxis,
   YAxis
 } from "recharts";
+import { MetricCardDtoSales } from "../../types/dashboard.dto";
 
-const data = {
-  cardData: {
-    title: "Sales",
-    value: "test"
-  },
-  chartData:
-    [
-      {
-        name: "Jan",
-        sales: 400,
-      },
-      {
-        name: "Feb",
-        sales: 300,
-      },
-      {
-        name: "Mar",
-        sales: 1200,
-      },
-      {
-        name: "Apr",
-        sales: 1800,
-      },
-      {
-        name: "May",
-        sales: 1500,
-      },
-      {
-        name: "Jun",
-        sales: 390,
-      },
-    ]
-}; //dummy data
-
-const SalesCard = () => {
+const SalesCard = ({
+  data
+}: {
+  data: MetricCardDtoSales
+}) => {
   return (
     <Card
       cardData={data.cardData}

@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/Card";
+import { MetricCardDtoUsers } from "../../types/dashboard.dto";
 import {
   CartesianGrid,
   Legend,
@@ -12,22 +13,11 @@ import {
   YAxis
 } from "recharts";
 
-const data = {
-  cardData: {
-    title: "Users",
-    value: "Unique users"
-  },
-  chartData: [
-    { month: "Jan", users: 120 },
-    { month: "Feb", users: 780 },
-    { month: "Mar", users: 260 },
-    { month: "Apr", users: 310 },
-    { month: "May", users: 220 },
-    { month: "Jun", users: 520 },
-  ]
-}; //dummy data
-
-const UsersCard = () => {
+const UsersCard = ({
+  data
+}: {
+  data: MetricCardDtoUsers
+}) => {
   return (
     <Card
       cardData={data.cardData}

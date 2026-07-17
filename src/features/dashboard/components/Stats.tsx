@@ -29,7 +29,6 @@ const cards = [
   },
 ];
 
-
 const Stats = ({
   stats
 }: {

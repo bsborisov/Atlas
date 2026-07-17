@@ -8,32 +8,13 @@ import {
   PolarAngleAxis,
   ResponsiveContainer
 } from "recharts";
+import { MetricCardDtoSubs } from "../../types/dashboard.dto";
 
-const SubscriptionsCard = () => {
-  const data = {
-    cardData: {
-      title: "Sales",
-      value: "Type of sales"
-    },
-    chartData: [
-      {
-        stat: "Free",
-        value: 30
-      },
-      {
-        stat: "Premium",
-        value: 37
-      },
-      {
-        stat: "Lite",
-        value: 24
-      },
-      {
-        stat: "Enterprise",
-        value: 9
-      }
-    ]
-  };
+const SubscriptionsCard = ({
+  data
+}: {
+  data: MetricCardDtoSubs
+}) => {
 
   return (
     <Card
