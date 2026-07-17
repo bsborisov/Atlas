@@ -28,7 +28,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "flex flex-col rounded-sm center items-center justify-between bg-background-dashboard-card",
+        "flex flex-col rounded-sm items-center bg-background-dashboard-card",
         className
       )}
     >
@@ -51,6 +51,12 @@ export const Card = ({
           </div>
         </div>
         {
+          children &&
+          <div className="flex flex-row p-3 w-full">
+            {children}
+          </div>
+        }
+        {
           (message) &&
           <>
             < Divider className="bg-app-white-transparent" />
@@ -60,12 +66,6 @@ export const Card = ({
               </div>
             </div>
           </>
-        }
-        {
-          children &&
-          <div className="flex flex-row p-3">
-            <div>{children}</div>
-          </div>
         }
       </div>
     </div>

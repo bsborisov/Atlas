@@ -1,6 +1,6 @@
 import { DashboardStats } from "@/types/stats-service"
-import Details from "./Details"
-import Metrics from "./Metrics"
+import Details from "./RevenueDetails/Details"
+import Metrics from "./Metrics/Metrics"
 import Stats from "./Stats"
 
 export function DashboardWrapper({
