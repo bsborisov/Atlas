@@ -10,6 +10,7 @@ import { colors } from "@/config/themeSettings";
 import { ActionError } from "@/types/action";
 import { loginSchema, LoginSchema } from "../schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { logger } from "@/lib/logger";
 
 export default function LoginForm() {
 
@@ -88,6 +89,9 @@ export default function LoginForm() {
           //progress={isPending}
           //disabled={isPending}
           className="mt-2 w-full"
+          onClick={() => {
+            logger.info("Login clicked");
+          }}
         >
           Login
         </Button>

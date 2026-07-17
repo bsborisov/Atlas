@@ -9,6 +9,7 @@ import FormField from "@/components/shared/FormField";
 import { Text } from "@/components/ui/Text";
 import { registerSchema, RegisterSchema } from "../schemas/register.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { logger } from "@/lib/logger";
 
 export default function RegisterForm() {
 
@@ -101,6 +102,9 @@ export default function RegisterForm() {
           //progress={isPending}
           //disabled={isPending}
           className="mt-2 w-full"
+          onClick={() => {
+            logger.info("Register clicked");
+          }}
         >
           Create account
         </Button>
