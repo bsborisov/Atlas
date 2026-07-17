@@ -8,6 +8,7 @@ import { createSession, destroySession } from "@/features/auth/session";
 import { registerSchema } from "@/features/auth/schemas/register.schema";
 import { validationError } from "@/lib/action-error";
 import { ActionResult } from "@/types/action";
+import { logger } from "@/features/error-logger";
 
 export async function registerAction(
   input: unknown
@@ -36,6 +37,15 @@ export async function registerAction(
     }
 
   } catch (error) {
+
+    logger.error(error, {
+      tags: {
+        feature: "auth/registration"
+      },
+      extra: [
+        ["message", "User registration failed on server"]
+      ]
+    })
 
     return {
       success: false,
@@ -89,6 +99,17 @@ export async function loginAction(
   }
 
   catch (error) {
+
+    logger.warn(error, {
+      tags: {
+        feature: "auth/login"
+      },
+      extra: [
+        ["message", "User login details are incorrect"]
+      ],
+      skipSentry: true
+    })
+
     return {
       success: false,
       error: {
