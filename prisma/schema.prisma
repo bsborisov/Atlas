@@ -14,7 +14,7 @@ model User {
 
   passwordHash String
 
-  name String?
+  name String
 
   sessions Session[]
 

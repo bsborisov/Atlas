@@ -3,6 +3,7 @@ import {
   hashPassword,
   verifyPassword
 } from "@/lib/password";
+import { UserDto } from "../types/user.dto";
 
 export async function registerUser(
   data: {
@@ -10,7 +11,7 @@ export async function registerUser(
     email: string;
     password: string;
   }
-) {
+): Promise<UserDto> {
 
   const existingUser =
     await prisma.user.findUnique({
@@ -37,8 +38,8 @@ export async function registerUser(
 
   return {
     id: user.id,
-    email: user.email,
     name: user.name,
+    email: user.email,
   };
 
 }
