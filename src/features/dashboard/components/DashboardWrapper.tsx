@@ -1,22 +1,23 @@
-import { DashboardStats } from "@/types/stats-service"
 import Details from "./RevenueDetails/Details"
 import Metrics from "./Metrics/Metrics"
 import Stats from "./Stats"
-import { DashboardMetricsDto } from "../types/dashboard.dto"
+import { DashboardDetailsDto, DashboardMetricsDto, DashboardStatsDto } from "../types/dashboard.dto"
 
 export function DashboardWrapper({
   stats,
-  metrics
+  metrics,
+  details
 }: {
-  stats: DashboardStats
-  metrics: DashboardMetricsDto
+  stats: DashboardStatsDto,
+  metrics: DashboardMetricsDto,
+  details: DashboardDetailsDto
 }) {
 
   return (
     <div className="w-full overflow-hidden">
       <Stats stats={stats} />
       <Metrics data={metrics} />
-      <Details />
+      <Details data={details} />
     </div>
   )
 

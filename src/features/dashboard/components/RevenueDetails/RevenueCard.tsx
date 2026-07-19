@@ -11,48 +11,13 @@ import {
   CartesianGrid,
   ResponsiveContainer
 } from "recharts";
+import { DetailsCardDtoRevenue } from "../../types/dashboard.dto";
 
-const data = {
-  cardData: {
-    title: "Revenue",
-    value: "Revenue & Users"
-  },
-  chartData: [
-    {
-      month: "Jan",
-      revenue: 12000,
-      users: 6000
-    },
-    {
-      month: "Feb",
-      revenue: 18000,
-      users: 9500
-    },
-    {
-      month: "Mar",
-      revenue: 20000,
-      users: 6000
-    },
-    {
-      month: "Apr",
-      revenue: 50000,
-      users: 16000
-    },
-    {
-      month: "May",
-      revenue: 25000,
-      users: 8000
-    },
-    {
-      month: "Jun",
-      revenue: 2000,
-      users: 200
-    }
-  ]
-};
-
-
-const RevenueCard = () => {
+const RevenueCard = ({
+  data
+}: {
+  data: DetailsCardDtoRevenue
+}) => {
 
   return (
     <Card

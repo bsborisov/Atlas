@@ -47,6 +47,27 @@
   --spacing-dvb: 100dvb;
 }
 
+@theme {
+  --animate-loading-dot: loading-dot 1s infinite ease-in-out;
+
+  @keyframes loading-dot {
+    0% {
+      opacity: 0.5;
+      background-color: rgb(255 255 255);
+    }
+
+    50% {
+      opacity: 1;
+      background-color: rgb(255 255 255);
+    }
+
+    100% {
+      opacity: 0.3;
+      background-color: rgb(255 255 255);
+    }
+  }
+}
+
 @utility bg-primary-dash-gradient {
   background: linear-gradient(to left, #1a2035, #141E30, #1a2035);
 }

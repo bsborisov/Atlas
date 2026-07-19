@@ -1,20 +1,19 @@
 import { DashboardWrapper } from "@/features/dashboard/components/DashboardWrapper";
-import { getDashboardMetrics } from "@/features/dashboard/services/dashboard.service";
-import { getStats } from "@/server/services/stats";
+import { getDashboardDetails, getDashboardMetrics, getDashboardStats } from "@/features/dashboard/services/dashboard.service";
 
 
 export default async function DashboardPage() {
 
-  const stats = await getStats();
+  const stats = await getDashboardStats();
   const metrics = await getDashboardMetrics();
-  //const details = await getDashboardMetrics();
+  const details = await getDashboardDetails();
 
   return (
 
     <DashboardWrapper
       stats={stats}
       metrics={metrics}
-    //details={details}
+      details={details}
     />
 
   );

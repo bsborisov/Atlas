@@ -7,33 +7,14 @@ import {
   Tooltip,
   ResponsiveContainer
 } from "recharts";
+import { DetailsCardDtoInvestments } from "../../types/dashboard.dto";
 
 
-const data = {
-  cardData: {
-    title: "Investments",
-    value: "Investments ratio"
-  },
-  chartData: [
-    {
-      name: "Small",
-      value: 32,
-      fill: "#3b82f6"
-    },
-    {
-      name: "Medium",
-      value: 46,
-      fill: "#3bf63b"
-    },
-    {
-      name: "Enterprise",
-      value: 22,
-      fill: "#f63b3b"
-    }
-  ]
-};
-
-const InvestmentsCard = () => {
+const InvestmentsCard = ({
+  data
+}: {
+  data: DetailsCardDtoInvestments
+}) => {
   return (
     <Card
       cardData={data.cardData}

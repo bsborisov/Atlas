@@ -29,3 +29,19 @@ export const iconSize: Record<string, number> = {
   xxl: 64,
   xxxl: 80
 }
+
+export const zIndex = {
+  background: -1,
+  heroBackground: 2,
+  sidebar: 9,
+  floaters: 15,
+  navBar: 22,
+  header: 30,
+  notification: 1000,
+  modal: 2000,
+  dropdown: 3500,
+  popout: 3000,
+  leaderboardAd: 10,
+  upgradePage: 50,
+  pageCover: 50
+}
