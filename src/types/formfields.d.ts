@@ -6,7 +6,7 @@ export type FormFieldType = {
   tabIndex?: number;
   type: string;
   label?: string;
-  errorValues?: any;
+  errorValues?: unknown;
   disabled?: boolean;
   placeholder?: string;
   descriptionLeading?: string;
