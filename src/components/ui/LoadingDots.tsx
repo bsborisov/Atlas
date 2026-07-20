@@ -6,11 +6,11 @@ export default function LoadingDots(
       {...props}
       role="progressbar"
       aria-label="Loading"
-      className="relative mx-auto flex w-[26px] justify-between"
+      className="relative mx-auto flex w-7 justify-between"
     >
-      <span className="size-[7px] rounded-full bg-white animate-loading-dot [animation-delay:-0.17s]" />
-      <span className="size-[7px] rounded-full bg-white animate-loading-dot" />
-      <span className="size-[7px] rounded-full bg-white animate-loading-dot [animation-delay:0.17s]" />
+      <span className="size-2 rounded-full bg-white animate-loading-dot [animation-delay:-0.18s]" />
+      <span className="size-2 rounded-full bg-white animate-loading-dot" />
+      <span className="size-2 rounded-full bg-white animate-loading-dot [animation-delay:0.18s]" />
     </div>
   );
 }
