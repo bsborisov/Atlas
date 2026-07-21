@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
+    "test:ci": "vitest run",
     "test:watch": "vitest --watch",
-    "coverage": "vitest --coverage"
+    "coverage": "vitest --coverage",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@eslint/js": "^9.39.4",
