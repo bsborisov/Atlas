@@ -1,11 +1,14 @@
+import { LucideIcon } from "lucide-react";
+
 //Stats
-export type DashboardStatsDto = {
-  users: number;
-  projects: number;
-  aiRequests: number;
-  revenue: number;
+export interface DashboardStats {
+  title: string,
+  value: number | string,
+  icon: LucideIcon,
+  iconBackground: string,
 };
 
+export type DashboardStatsDto = DashboardStats[]
 
 //Metrics
 export interface MetricChartPointUsers {

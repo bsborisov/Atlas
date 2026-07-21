@@ -1,16 +1,37 @@
 import { DashboardDetailsDto, DashboardMetricsDto, DashboardStatsDto } from "../types/dashboard.dto";
+import { CarIcon, CpuIcon, EarIcon, UsersRoundIcon } from "lucide-react";
 
 export async function getDashboardStats(): Promise<DashboardStatsDto> {
   // Simulate API/DB latency
   await new Promise((resolve) => setTimeout(resolve, 300));
 
-  return {
-    users: 12458,
-    projects: 387,
-    aiRequests: 98421,
-    revenue: 12750,
-  };
-}
+  return [
+    {
+      title: "Online Users",
+      value: 123,
+      icon: UsersRoundIcon,
+      iconBackground: "bg-dash-stats-card-gradient1",
+    },
+    {
+      title: "Server Load",
+      value: "87%",
+      icon: CpuIcon,
+      iconBackground: "bg-dash-stats-card-gradient2",
+    },
+    {
+      title: "AI Workspace",
+      value: 123,
+      icon: EarIcon,
+      iconBackground: "bg-dash-stats-card-gradient3",
+    },
+    {
+      title: "AI Car",
+      value: 123,
+      icon: CarIcon,
+      iconBackground: "bg-dash-stats-card-gradient4",
+    },
+  ]
+};
 
 export async function getDashboardMetrics(): Promise<DashboardMetricsDto> {
   // Later this becomes Prisma queries

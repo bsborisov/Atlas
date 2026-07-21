@@ -14,3 +14,5 @@ export default function LoadingDots(
     </div>
   );
 }
+
+LoadingDots.displayName = "LoadingDots";

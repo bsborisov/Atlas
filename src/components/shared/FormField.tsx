@@ -56,6 +56,8 @@ const Password = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   );
 });
 
+Password.displayName = "Password field"
+
 export const FormFieldInput = forwardRef<HTMLInputElement, FormFieldInputType>((
   {
     name,
@@ -91,7 +93,9 @@ export const FormFieldInput = forwardRef<HTMLInputElement, FormFieldInputType>((
   );
 })
 
-export default function FormField({
+FormFieldInput.displayName = "FormFieldInput";
+
+function FormField({
   name,
   tabIndex,
   type,
@@ -159,3 +163,7 @@ export default function FormField({
     </div>
   )
 }
+
+FormField.displayName = "FormField";
+
+export default FormField

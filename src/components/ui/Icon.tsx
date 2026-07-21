@@ -1,6 +1,7 @@
 import { colors, iconSize } from "@/config/themeSettings";
 import { cn } from "@/lib/utils";
 import { isNumber } from "lodash";
+import { ReactNode } from "react";
 import InlineSVG from "react-inlinesvg";
 
 type StyledSvgProps = {
@@ -16,20 +17,20 @@ type SVGFallbackProps = React.HTMLAttributes<HTMLDivElement> & {
 
 type IconType = {
   className?: string,
-  src: any,
+  src: string,
   size?: string | number,
   title?: string,
   "aria-label"?: string,
   color?: string,
   hovercolor?: string,
   inline?: boolean,
-  mirroring?: any,
-  onClick?: (e?: any) => void,
-  onKeyDown?: (e?: any) => void,
+  mirroring?: boolean,
+  onClick?: (e?: unknown) => void,
+  onKeyDown?: (e?: unknown) => void,
   tabIndex?: number,
   "data-testid"?: string,
-  fallback?: any,
-  loadingPlaceholder?: any,
+  fallback?: ReactNode,
+  loadingPlaceholder?: ReactNode,
   forceOriginalIcon?: boolean,
 } & React.ComponentProps<typeof StyledSvg>
 
@@ -61,7 +62,7 @@ export function StyledSvg({
         color: getColor(color ?? "none"),
         fill: getColor(color ?? "none"),
         ...(hovercolor && {
-          ["--hover-color" as any]: getColor(hovercolor),
+          ["--hover-color"]: getColor(hovercolor),
         }),
       }}
     />
@@ -147,3 +148,5 @@ export const Icon = ({
     </i>
   );
 };
+
+Icon.displayName = "Icon";

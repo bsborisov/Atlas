@@ -15,7 +15,7 @@ export function DashboardWrapper({
 
   return (
     <div className="w-full overflow-hidden">
-      <Stats stats={stats} />
+      <Stats data={stats} />
       <Metrics data={metrics} />
       <Details data={details} />
     </div>

@@ -71,3 +71,5 @@ export const Card = ({
     </div>
   );
 }
+
+Card.displayName = "Card";

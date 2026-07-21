@@ -55,6 +55,8 @@ const InputHolder = ({
   );
 };
 
+
+
 const StyledInput = forwardRef<HTMLInputElement, InputProps>((
   {
     isMultiSelect,
@@ -115,7 +117,9 @@ const StyledInput = forwardRef<HTMLInputElement, InputProps>((
   );
 })
 
-export const Input = forwardRef((
+StyledInput.displayName = "StyledInput"
+
+export const Input = forwardRef<HTMLInputElement, InputProps>((
   {
     value,
     placeholder,
@@ -138,8 +142,8 @@ export const Input = forwardRef((
     name,
     disableEllipsis,
     ...rest
-  }: InputProps,
-  ref: any
+  },
+  ref
 ) => {
 
 
@@ -192,5 +196,7 @@ export const Input = forwardRef((
     </InputHolder>
   );
 });
+
+Input.displayName = "Input";
 
 export default Input;

@@ -60,8 +60,8 @@ export const IconButton = forwardRef<HTMLButtonElement, ButtonProps>(
       src,
       title,
       iconSize = "m",
-      showTooltip = false,
-      tooltipProps,
+      //showTooltip = false,
+      //tooltipProps,
       mirroring = true,
       fetchOptions,
       ...buttonProps

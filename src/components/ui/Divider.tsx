@@ -17,4 +17,6 @@ const Divider: React.FC<DividerProps> = ({ vertical, className = "" }) => {
   );
 };
 
+Divider.displayName = "Divider";
+
 export default Divider;
