@@ -28,7 +28,7 @@ export const MainHero = () => {
                     priority
                   />
                   <Heading size={4} className="shadow-base font-mont text-zinc-50">
-                    Atlas Nextjs App Router Demo Example
+                    Atlas Nextjs App Router Demo
                   </Heading>
                   <Heading size={6} className="shadow-base font-mont text-subtitle mbe-2">
                     This is small system to demonstrate the basics of my knowledge.
