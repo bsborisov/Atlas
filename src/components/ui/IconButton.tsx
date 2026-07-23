@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
-import { ButtonProps } from "@/types/formfields";
 import { forwardRef } from "react";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
+import { ButtonProps } from "@/types/ui";
 
 function getButtonVariant(e: string) {
   switch (e) {
