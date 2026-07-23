@@ -45,6 +45,11 @@ const typography: Record<string, typographyProps> = {
     spacing: .005,
     lineHeight: 20
   },
+  xLarge: {
+    size: "18px",
+    spacing: .0025,
+    lineHeight: 28
+  },
   large: {
     size: "16px",
     spacing: .0025,
@@ -82,7 +87,7 @@ export function Text({
         `text-[${typography[size].size}] 
          tracking-[${typography[size].spacing}] 
          leading-[${typography[size].lineHeight}] 
-         font-mont font-${weight}`,
+         font-geist font-${weight}`,
         category && colors[category],
         color && colors[color],
         className

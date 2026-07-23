@@ -32,7 +32,7 @@ export const Card = ({
         className
       )}
     >
-      <div className="flex flex-col w-full font-mont">
+      <div className="flex flex-col w-full font-montserrat">
         <div className="flex flex-row flex-1 p-3">
           {Icon &&
             <div

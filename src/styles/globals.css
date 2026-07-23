@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: rgb(6, 9, 14);
+  --foreground: rgb(244, 248, 255);
   --background-black: #060606;
   --background-forms: #0e0e0e;
-  --foreground: #ededed;
   --foreground-darker: rgb(204, 204, 204);
   --input-background: rgba(241, 241, 241, 0.05);
   --nav-active: rgb(43, 53, 76);
@@ -21,7 +21,7 @@
   --dashboard-card: rgb(32, 41, 64);
 }
 
-@theme inline {
+/* @theme {
   --color-background: var(--background);
   --color-background-black: var(--background-black);
   --color-background-forms: var(--background-forms);
@@ -40,8 +40,34 @@
   --color-app-grey: var(--app-grey);
   --color-app-white-transparent: var(--app-white-transparent);
   --color-app-white-transparent-darker: var(--app-white-transparent-darker);
-  --font-mont: var(--font-montserrat);
+  --font-montserrat: var(--font-var-montserrat);
+  --font-geist: var(--font-var-geist);
+} */
+
+@theme inline {
+  --color-atlas-background: rgb(6, 9, 14);
+  --color-atlas-darkest-blue: rgb(6, 16, 26);
+  --color-atlas-darker-blue: rgb(8, 19, 31);
+  --color-atlas-dark-blue: rgb(14, 28, 43);
+  --color-atlas-black: rgb(30, 30, 30);
+  --color-atlas-gray: rgb(118, 118, 118);
+  --color-atlas-white: rgb(245, 245, 245);
+  --color-atlas-cyan: rgb(81, 230, 255);
+  --color-atlas-green: rgb(182, 245, 106);
+  --color-atlas-yellow: rgb(255, 209, 102);
+  --color-atlas-purple: rgb(168, 107, 255);
+  --color-atlas-pink: rgb(255, 121, 198);
+  --color-top-nav: rgb(142, 160, 183);
+  --color-top-nav-hover: rgb(168, 178, 190);
+  --color-top-nav-active: rgb(244, 248, 255);
+  --color-main-border: rgb(30, 49, 67);
+  --color-main-background: rgb(11, 23, 36);
+  --color-runtime-border: rgb(30, 49, 67);
+  --color-runtime-border: rgb(53, 80, 107);
+  --font-montserrat: var(--font-var-montserrat);
+  --font-geist: var(--font-var-geist);
 }
+
 
 @theme {
   --spacing-dvb: 100dvb;
@@ -66,6 +92,21 @@
       background-color: rgb(255 255 255);
     }
   }
+}
+
+@utility bg-primary-header-button-gradient {
+  background: linear-gradient(90deg, rgb(39, 107, 255) 0%, rgb(155, 92, 255) 100%);
+}
+
+@utility bg-primary-hero-text-gradient {
+  background: linear-gradient(90deg, rgb(81, 230, 255) 0%, rgb(168, 107, 255) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility primary-header-button-shadow {
+  box-shadow: 0px 8px 18px 0px rgba(107, 140, 255, 0.28);
 }
 
 @utility bg-primary-dash-gradient {
@@ -105,8 +146,25 @@
   background: linear-gradient(0deg, rgb(6, 6, 6) 1%, transparent 30.32%);
 }
 
+@utility pulse-green-shadow {
+  animation: 3s ease 0s infinite normal none running pulse-green-shadow-animation;
+}
 
-@utility ai-gradient-bg {
+@keyframes pulse-green-shadow-animation {
+  0% {
+    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.2);
+  }
+
+  50% {
+    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.8);
+  }
+
+  100% {
+    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.2);
+  }
+}
+
+/* @utility ai-gradient-bg {
   background: linear-gradient(220deg, var(--color-primary-gradient), rgb(0, 0, 0), rgb(0, 0, 0)) 0% 0% / 225%;
   animation: 15s ease 0s infinite normal none running ai-gradient-animation;
 
@@ -127,10 +185,10 @@
   100% {
     background-position: 0% 81%;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Geist;
 }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80" role="img" aria-labelledby="atlas-logo-title">
+  <title id="atlas-logo-title">Atlas</title>
+  <path fill="currentColor" fill-rule="evenodd" d="M0 80 30.8 0h16.4L78 80H62.4l-7.6-20.5H23.2L15.6 80H0Zm28-33.2h22L39 17 28 46.8Z"/>
+  <path fill="currentColor" d="M78 0h72v13h-29v67h-14V13H78V0Zm80 0h14v66h48v14h-62V0Z"/>
+  <path fill="currentColor" fill-rule="evenodd" d="M216 80 246.8 0h16.4L294 80h-15.6l-7.6-20.5h-31.6L231.6 80H216Zm28-33.2h22L255 17l-11 29.8Z"/>
+  <path fill="currentColor" d="M393 22h-16c-1-7-8-11-19-11-12 0-19 4.5-19 11.5 0 6 5 9 16.7 11.6l10.3 2.3c18.5 4 27 11.2 27 22.2C393 72.6 379.6 80 357.4 80c-22 0-36-8.6-37-24.7h16.5c.9 8.2 8.1 12.7 20.1 12.7 12.2 0 19.2-3.7 19.2-9.6 0-5.1-5.4-7.8-17.6-10.5l-12.4-2.8c-16.7-3.7-25-10.9-25-22.4C321.2 8.8 335.3 0 358.1 0 379.5 0 392 8.4 393 22Z"/>
+</svg>

@@ -1,10 +1,15 @@
 import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Geist, Montserrat } from "next/font/google";
 import "../styles/globals.css";
 
 const montserrat = Montserrat({
-  variable: "--font-montserrat",
+  variable: "--font-var-montserrat",
+  subsets: ["latin"],
+})
+
+const geist = Geist({
+  variable: "--font-var-geist",
   subsets: ["latin"],
 })
 
@@ -22,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className="antialiased">
       <body className="pointer-events-auto">
         <Providers>
-          <div className={`${montserrat.variable}`}>
+          <div className={`${montserrat.variable} ${geist.variable}`}>
             {children}
           </div>
         </Providers>

@@ -12,7 +12,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="h-dvb flex flex-col overflow-hidden font-mont bg-black">
+    <div className="h-dvb flex flex-col overflow-hidden font-montserrat bg-black">
       <div className="block z-2">
         <TopBar />
       </div>

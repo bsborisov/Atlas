@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { ButtonProps } from "@/types/formfields"
+import { ButtonProps } from "@/types/ui"
 
 const buttonVariants = cva(
   `
@@ -9,8 +9,8 @@ const buttonVariants = cva(
   items-center 
   justify-center 
   gap-2
-  rounded-sm
-  font-semibold
+  rounded-lg
+  font-normal
   transition-all
   duration-200
   disabled:pointer-events-none
@@ -20,7 +20,6 @@ const buttonVariants = cva(
   focus-visible:ring-offset-2
   active:scale-[0.98]
   cursor-pointer
-  uppercase
   `,
   {
     variants: {
@@ -88,10 +87,10 @@ const buttonVariants = cva(
         `,
 
         lg: `
-          h-12
+          h-10
           py-4
           px-8
-          text-sm
+          text-base
         `,
 
         icon: `

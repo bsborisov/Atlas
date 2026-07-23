@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from '@/lib/utils';
-import { InputHolderProps, InputProps } from '@/types/formfields';
+import { InputHolderProps, InputProps } from '@/types/ui';
 import { forwardRef, useState } from 'react';
 
 const InputHolder = ({
@@ -85,7 +85,7 @@ const StyledInput = forwardRef<HTMLInputElement, InputProps>((
       overflow-hidden
       whitespace-nowrap
 
-      font-mont
+      font-montserrat
       tracking-[0.0025em]
       text-base
       font-normal
