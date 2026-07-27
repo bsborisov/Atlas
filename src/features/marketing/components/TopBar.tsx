@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/Button"
-import Divider from "@/components/ui/Divider"
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image"
 import Link from "next/link"
@@ -19,68 +18,68 @@ export const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-24 bg-atlas-darkest-blue border-b border-main-border/[65%]">
-      <div className="w-full flex py-0 px-20 m-auto justify-between items-center">
-        <div className="hidden lg:contents">
-          <Link href={"/"}>
-            <span>
-              <Image
-                className="invert"
-                src="/atlas.svg"
-                alt="Atlas"
-                width={100}
-                height={20}
-                priority
-              />
-            </span>
-          </Link>
-        </div>
-        <div className="flex mx-auto gap-8 font-geist">
-          {
-            topNavigation.map((item) => {
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname === item.href ||
-                  pathname.startsWith(`${item.href}/`);
-              return (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className={`
-                    capitalize text-base font-medium
+    <div className="flex h-14 py-0 px-16 gap-8 items-center self-stretch bg-atlas-background border-b border-atlas-main-border">
+      <Link href={"/"}>
+        <span>
+          <Image
+            className="invert"
+            src="/atlas.svg"
+            alt="Atlas"
+            width={100}
+            height={20}
+            priority
+          />
+        </span>
+      </Link>
+      <div className="hidden lg:flex w-full gap-6 justify-center items-start">
+        {
+          topNavigation.map((item) => {
+            const isActive =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname === item.href ||
+                pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.title}
+                href={item.href}
+                className={`
+                    flex px-1 text-center text-[13px] font-inter font-medium leading-[150%]
                     ${isActive
-                      ? 'text-top-nav-active'
-                      : 'text-top-nav hover:text-top-nav-hover hover:underline'
-                    }
+                    ? 'text-top-nav-color-active'
+                    : 'text-top-nav-color hover:text-top-nav-color-active'
+                  }
                   `}
-                >
-                  {item.title}
-                </Link>
-              )
-            })
+              >
+                {item.title}
+              </Link>
+            )
+          })
+        }
+      </div>
+      <div className="hidden lg:flex gap-5 items-center">
+        <Link
+          href="https://github.com"
+          className={`
+            flex px-1 gap-2 items-center
+            text-center text-[13px] text-top-nav-color hover:text-top-nav-color-active
+            font-inter font-medium 
+            leading-[150%] 
+            whitespace-nowrap
+          `}
+        >
+          <FaGithub />
+          {"GitHub"}
+        </Link>
+        <Button
+          size="md"
+          variant="primary"
+          onClick={onStartUpClick}
+        >
+          {
+            "Get started →" //TODO translate
           }
-
-        </div>
-        <div className="hidden lg:flex gap-3 items-center">
-          <Button
-            size="a"
-            variant={"ghost"}
-            className="text-top-nav text-base font-medium font-geist normal-case"
-          >
-            GitHub ↗
-          </Button>
-          <Button
-            size="lg"
-            variant="secondary"
-            onClick={onStartUpClick}
-            className="text-atlas-white bg-primary-header-button-gradient normal-case px-3 primary-header-button-shadow"
-          >
-            {
-              "Open Atlas" //TODO translate
-            }
-          </Button>
-        </div>
+        </Button>
       </div>
     </div>
   )

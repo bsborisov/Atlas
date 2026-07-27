@@ -1,5 +1,4 @@
-import { VariantProps } from "class-variance-authority"
-import { CSSProperties, HTMLInputAutoCompleteAttribute, InputHTMLAttributes, ReactNode } from "react"
+import { HTMLInputAutoCompleteAttribute, InputHTMLAttributes, ReactNode } from "react"
 
 export type FormFieldType = {
   name: string;

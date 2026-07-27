@@ -1,14 +1,18 @@
 export const topNavigation = [
   {
-    title: "Home",
+    title: "Product",
     href: "/"
   },
   {
-    title: "Projects",
-    href: "/projects"
+    title: "Docs",
+    href: "/docs"
   },
   {
-    title: "AI Workspace",
-    href: "/ai"
+    title: "Integrations",
+    href: "/integrations"
+  },
+  {
+    title: "Pricing",
+    href: "/pricing"
   },
 ];

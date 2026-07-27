@@ -1,194 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: rgb(6, 9, 14);
-  --foreground: rgb(244, 248, 255);
-  --background-black: #060606;
-  --background-forms: #0e0e0e;
-  --foreground-darker: rgb(204, 204, 204);
-  --input-background: rgba(241, 241, 241, 0.05);
-  --nav-active: rgb(43, 53, 76);
-  --nav-hover: rgba(241, 241, 241, 0.08);
-  --input-border: rgb(36, 36, 36);
-  --app-main-gradient: rgb(32, 182, 103);
-  --app-main: rgb(0, 182, 103);
-  --app-main-hover: rgb(0, 202, 103);
-  --app-white-transparent: rgba(181, 181, 181, 0.3);
-  --app-white-transparent-darker: rgba(181, 181, 181, 0.5);
-  --app-grey: rgb(167, 167, 167);
-  --ghost-hover: rgba(56, 56, 56, 0.08);
-  --sidebar: rgb(31, 40, 62);
-  --dashboard-card: rgb(32, 41, 64);
-}
+  --background: rgb(7, 10, 18);
+  --background-light: rgb(13, 20, 34);
+  --foreground: rgb(247, 248, 252);
+  --main-border: rgb(32, 44, 66);
+  --main-border-active: rgb(52, 66, 91);
+  --nav-color: rgb(103, 116, 138);
+  --nav-color-active: rgb(156, 168, 189);
 
-/* @theme {
-  --color-background: var(--background);
-  --color-background-black: var(--background-black);
-  --color-background-forms: var(--background-forms);
-  --color-background-sidebar: var(--sidebar);
-  --color-background-dashboard-card: var(--dashboard-card);
-  --color-background-nav-active: var(--nav-active);
-  --color-background-nav-hover: var(--nav-hover);
-  --color-input-background: var(--input-background);
-  --color-input-border: var(--input-border);
-  --color-title: var(--foreground);
-  --color-subtitle: var(--foreground-darker);
-  --color-primary: var(--app-main);
-  --color-primary-hover: var(--app-main-hover);
-  --color-primary-gradient: var(--app-main-gradient);
-  --color-ghost-hover: var(--ghost-hover);
-  --color-app-grey: var(--app-grey);
-  --color-app-white-transparent: var(--app-white-transparent);
-  --color-app-white-transparent-darker: var(--app-white-transparent-darker);
-  --font-montserrat: var(--font-var-montserrat);
-  --font-geist: var(--font-var-geist);
-} */
+  --app-purple: rgb(168, 107, 255);
+  --app-light-green: rgb(82, 217, 154);
+  --app-green: rgb(40, 200, 64);
+  --app-light-red: rgb(255, 107, 129);
+  --app-red: rgb(255, 95, 87);
+  --app-yellow: rgb(255, 189, 46);
+}
 
 @theme inline {
-  --color-atlas-background: rgb(6, 9, 14);
-  --color-atlas-darkest-blue: rgb(6, 16, 26);
-  --color-atlas-darker-blue: rgb(8, 19, 31);
-  --color-atlas-dark-blue: rgb(14, 28, 43);
-  --color-atlas-black: rgb(30, 30, 30);
-  --color-atlas-gray: rgb(118, 118, 118);
-  --color-atlas-white: rgb(245, 245, 245);
-  --color-atlas-cyan: rgb(81, 230, 255);
-  --color-atlas-green: rgb(182, 245, 106);
-  --color-atlas-yellow: rgb(255, 209, 102);
-  --color-atlas-purple: rgb(168, 107, 255);
-  --color-atlas-pink: rgb(255, 121, 198);
-  --color-top-nav: rgb(142, 160, 183);
-  --color-top-nav-hover: rgb(168, 178, 190);
-  --color-top-nav-active: rgb(244, 248, 255);
-  --color-main-border: rgb(30, 49, 67);
-  --color-main-background: rgb(11, 23, 36);
-  --color-runtime-border: rgb(30, 49, 67);
-  --color-runtime-border: rgb(53, 80, 107);
-  --font-montserrat: var(--font-var-montserrat);
-  --font-geist: var(--font-var-geist);
+  --color-atlas-background: var(--background);
+  --color-atlas-background-light: var(--background-light);
+  --color-atlas-foreground: var(--foreground);
+  --color-atlas-main-border: var(--main-border);
+  --color-atlas-main-border-active: var(--main-border-active);
+  --color-top-nav-color: var(--nav-color);
+  --color-top-nav-color-active: var(--nav-color-active);
+  --color-main-text: var(--nav-color);
+  --color-main-text-active: var(--nav-color-active);
+
+  --color-app-purple: var(--app-purple);
+  --color-app-light-green: var(--app-light-green);
+  --color-app-green: var(--app-green);
+  --color-app-light-red: var(--app-light-red);
+  --color-app-red: var(--app-red);
+  --color-app-yellow: var(--app-yellow);
+
+
+  --font-inter: var(--font-var-inter);
+  --font-jet-mono: var(--font-var-jet-mono);
+}
+
+@utility demo-table-grid {
+  display: grid;
+  grid-template-columns: 16px 1fr 72px 48px 36px;
+}
+
+@utility demo-table-grid-observe {
+  display: grid;
+  grid-template-columns: 16px 1fr 72px 44px;
 }
 
 
-@theme {
-  --spacing-dvb: 100dvb;
+@utility cursor-animation {
+  animation: blink 1.1s step-end infinite
 }
 
-@theme {
-  --animate-loading-dot: loading-dot 1s infinite ease-in-out;
+@keyframes blink {
 
-  @keyframes loading-dot {
-    0% {
-      opacity: 0.5;
-      background-color: rgb(255 255 255);
-    }
-
-    50% {
-      opacity: 1;
-      background-color: rgb(255 255 255);
-    }
-
-    100% {
-      opacity: 0.3;
-      background-color: rgb(255 255 255);
-    }
-  }
-}
-
-@utility bg-primary-header-button-gradient {
-  background: linear-gradient(90deg, rgb(39, 107, 255) 0%, rgb(155, 92, 255) 100%);
-}
-
-@utility bg-primary-hero-text-gradient {
-  background: linear-gradient(90deg, rgb(81, 230, 255) 0%, rgb(168, 107, 255) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-@utility primary-header-button-shadow {
-  box-shadow: 0px 8px 18px 0px rgba(107, 140, 255, 0.28);
-}
-
-@utility bg-primary-dash-gradient {
-  background: linear-gradient(to left, #1a2035, #141E30, #1a2035);
-}
-
-@utility bg-dash-stats-card-gradient1 {
-  background: linear-gradient(to right, #acbb78, #799f0c);
-  ;
-}
-
-@utility bg-dash-stats-card-gradient2 {
-  background: linear-gradient(to right, #6fb1fc, #4364f7, #0052d4);
-}
-
-@utility bg-dash-stats-card-gradient3 {
-  background: linear-gradient(to right, #a811da, #bf5ae0);
-}
-
-@utility bg-dash-stats-card-gradient4 {
-  background: linear-gradient(to right, #6dd5ed, #2193b0);
-}
-
-@utility shadow-base {
-  text-shadow: rgba(255, 255, 255, 0.25) 0px 1px 6px;
-}
-
-@utility home-stats-border-gradient-bg {
-  background: linear-gradient(18deg, gray, black 50%, gray);
-}
-
-@utility home-stats-gradient-bg {
-  background: linear-gradient(rgb(0, 0, 0) 0%, rgb(18, 18, 18) 100%);
-}
-
-@utility home-hero-bottom-gradient-bg {
-  background: linear-gradient(0deg, rgb(6, 6, 6) 1%, transparent 30.32%);
-}
-
-@utility pulse-green-shadow {
-  animation: 3s ease 0s infinite normal none running pulse-green-shadow-animation;
-}
-
-@keyframes pulse-green-shadow-animation {
-  0% {
-    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.2);
+  0%,
+  100% {
+    opacity: 1
   }
 
   50% {
-    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.8);
-  }
-
-  100% {
-    box-shadow: 0px 0px 8px 1px rgba(182, 245, 106, 0.2);
+    opacity: 0
   }
 }
 
-/* @utility ai-gradient-bg {
-  background: linear-gradient(220deg, var(--color-primary-gradient), rgb(0, 0, 0), rgb(0, 0, 0)) 0% 0% / 225%;
-  animation: 15s ease 0s infinite normal none running ai-gradient-animation;
-
-  @media screen and (min-width: 768px) {
-    background-size: 150%;
-  }
+@utility pulse-green-dot {
+  animation: 2s ease 0s infinite normal none running pulse-green-dot-animation;
 }
 
-@keyframes ai-gradient-animation {
+@keyframes pulse-green-dot-animation {
   0% {
-    background-position: 0% 81%;
+    background: var(--app-light-green);
   }
 
   50% {
-    background-position: 100% 20%;
+    background: color-mix(in srgb, var(--app-light-green) 40%, transparent);
   }
 
   100% {
-    background-position: 0% 81%;
+    background: var(--app-light-green);
   }
-} */
+}
+
+@utility node-pulse {
+  animation: node-pulse-animation 2s ease-in-out infinite;
+}
+
+@keyframes dash-flow-animation {
+  from {
+    stroke-dashoffset: 24
+  }
+
+  to {
+    stroke-dashoffset: 0
+  }
+}
+
+@keyframes node-pulse-animation {
+
+  0%,
+  100% {
+    opacity: 0.5
+  }
+
+  50% {
+    opacity: 0.15
+  }
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Geist;
+  font-family: Inter;
 }

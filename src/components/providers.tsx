@@ -3,9 +3,8 @@ export function Providers({
 }: {
   children: React.ReactNode;
 }) {
-    return (
-        <>{children}</>
-    )
+  return (
+    <>{children}</>
+  )
 }
-    
-    
+

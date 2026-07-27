@@ -12,15 +12,11 @@ export default async function Home() {
   }
 
   return (
-    <div className="h-dvb flex flex-col overflow-hidden font-montserrat bg-black">
-      <div className="block z-2">
-        <TopBar />
-      </div>
-      <div className="overflow-hidden z-1">
-        <div className="flex flex-col h-full relative overflow-visible">
-          <div className="h-full isolate overflow-auto">
-            <MainLanding />
-          </div>
+    <div className="flex flex-col w-full items-start font-inter">
+      <div className="flex flex-col w-full items-start shrink-0 bg-atlas-background">
+        <div className="flex flex-col items-start self-stretch">
+          <TopBar />
+          <MainLanding />
         </div>
       </div>
     </div>

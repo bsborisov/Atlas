@@ -14,7 +14,7 @@ export const colors: Record<string, string> = {
   error: "#EF0000",
   info: "#00A3FF",
   none: "none"
-}
+} //TODO clear
 
 export const iconSize: Record<string, number> = {
   xxxs: 8,

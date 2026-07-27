@@ -9,8 +9,11 @@ const buttonVariants = cva(
   items-center 
   justify-center 
   gap-2
-  rounded-lg
-  font-normal
+  rounded-md
+  text-center
+  font-inter
+  font-semibold
+  leading-[150%]
   transition-all
   duration-200
   disabled:pointer-events-none
@@ -20,16 +23,16 @@ const buttonVariants = cva(
   focus-visible:ring-offset-2
   active:scale-[0.98]
   cursor-pointer
+  whitespace-nowrap
   `,
   {
     variants: {
       variant: {
 
         primary: `
-          bg-primary 
+          bg-app-purple 
           text-white
-          hover:bg-primary-hover
-          focus-visible:ring-blue-500
+          hover:bg-app-purple/[90%]
         `,
 
         secondary: `
@@ -40,13 +43,14 @@ const buttonVariants = cva(
 
         outline: `
           border
-          border-gray-300
+          border-atlas-main-border
           bg-transparent
-          hover:bg-gray-100
+          hover:border-atlas-main-border-active
+          hover:text-atlas-foreground
         `,
 
         ghost: `
-          hover:bg-ghost-hover
+          hover:bg-gray-100/[3%]
         `,
 
         danger: `
@@ -57,10 +61,10 @@ const buttonVariants = cva(
 
         gradient: `
           bg-gradient-to-r
-          from-indigo-500
-          via-purple-500
-          to-pink-500
-          text-white
+          from-white
+          via-green-500
+          to-red-500
+          text-black
           hover:opacity-90
         `,
       },
@@ -74,23 +78,24 @@ const buttonVariants = cva(
         `,
         sm: `
           h-6
-          py-2
-          px-6
+          py-0
+          px-3
           text-sm
         `,
 
         md: `
           h-8
-          py-2
-          px-6
+          py-0
+          px-4
           text-sm
         `,
 
         lg: `
-          h-10
-          py-4
-          px-8
-          text-base
+          h-[42px]
+          py-0
+          px-[22px]
+          rounded-[7px]
+          text-sm
         `,
 
         icon: `

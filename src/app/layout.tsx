@@ -1,20 +1,20 @@
 import { Providers } from "@/components/providers";
 import type { Metadata } from "next";
-import { Geist, Montserrat } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "../styles/globals.css";
 
-const montserrat = Montserrat({
-  variable: "--font-var-montserrat",
+const inter = Inter({
+  variable: "--font-var-inter",
   subsets: ["latin"],
 })
 
-const geist = Geist({
-  variable: "--font-var-geist",
+const jet = JetBrains_Mono({
+  variable: "--font-var-jet-mono",
   subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
-  title: "AI Corp.",
+  title: "Atlas",
   description: "Next.js App router example.",
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className="antialiased">
       <body className="pointer-events-auto">
         <Providers>
-          <div className={`${montserrat.variable} ${geist.variable}`}>
+          <div className={`${inter.variable} ${jet.variable}`}>
             {children}
           </div>
         </Providers>
