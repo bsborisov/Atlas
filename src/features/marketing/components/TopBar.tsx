@@ -19,7 +19,7 @@ export const TopBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-14 py-0 px-16 gap-8 items-center self-stretch bg-atlas-background border-b border-atlas-main-border">
+    <nav className="flex h-14 py-0 px-16 gap-8 items-center self-stretch bg-atlas-background border-b border-atlas-main-border">
       <Link
         href={"/"}
         className="flex items-center gap-[9px]"
@@ -77,6 +77,6 @@ export const TopBar = () => {
           }
         </Button>
       </div>
-    </div>
+    </nav>
   )
 }

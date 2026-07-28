@@ -11,6 +11,8 @@ import { ActionError } from "@/types/action";
 import { loginSchema, LoginSchema } from "../schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { logger } from "@/lib/logger";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function LoginForm() {
 
@@ -41,61 +43,77 @@ export default function LoginForm() {
   }
 
   return (
-    <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormField
-          name="email"
-          type="email"
-          label={"Email address"} //TODO translate
-          placeholder={"Email address"}
-          autoComplete="email"
-          tabIndex={1}
-        />
-        <FormField
-          name="password"
-          type="password"
-          label={"Password"} //TODO translate
-          placeholder={"Password"}
-          autoComplete="current-password"
-          tabIndex={2}
-        />
-        {error && (
-          <div className="mb-4">
-            <Text className="mt-2" style={{ color: colors.alert }}>
-              {
-                form.formState.errors.email?.message &&
-                <p>
-                  {form.formState.errors.email?.message}
-                </p>
-              }
-              {
-                form.formState.errors.password?.message &&
-                <p>
-                  {form.formState.errors.password?.message}
-                </p>
-              }
-              {
-                error?.message &&
-                <p>
-                  {error.message}
-                </p>
-              }
-            </Text>
-          </div>
-        )}
+    <>
+      <Text className="flex items-start self-stretch text-[19px] font-bold text-foreground leading-[140%] tracking-[-0.57px]">
+        Welcome back
+      </Text>
+      <Text className="flex pt-1 text-[13px]">
+        Sign in to your Atlas workspace.
+      </Text>
+      <div className="flex flex-col items-start pt-6 gap-[9px] self-stretch">
+        Login with google/github
+      </div>
+      <div className="flex items-center gap-3 pt-[18px]">
+        <div className="flex-1 h-px bg-atlas-main-border" />
+        <Text className="text-[11px]">or continue with email</Text>
+        <div className="flex-1 h-px bg-atlas-main-border" />
+      </div>
+      <FormProvider {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            name="email"
+            type="email"
+            label={"Email address"} //TODO translate
+            placeholder={"Email address"}
+            autoComplete="email"
+            tabIndex={1}
+          />
+          <FormField
+            name="password"
+            type="password"
+            label={"Password"} //TODO translate
+            placeholder={"Password"}
+            autoComplete="current-password"
+            tabIndex={2}
+          />
+          {error && (
+            <div className="mb-4">
+              <Text className="mt-2" style={{ color: colors.alert }}>
+                {
+                  form.formState.errors.email?.message &&
+                  <p>
+                    {form.formState.errors.email?.message}
+                  </p>
+                }
+                {
+                  form.formState.errors.password?.message &&
+                  <p>
+                    {form.formState.errors.password?.message}
+                  </p>
+                }
+                {
+                  error?.message &&
+                  <p>
+                    {error.message}
+                  </p>
+                }
+              </Text>
+            </div>
+          )}
 
-        <Button
-          type="submit"
-          //progress={isPending}
-          //disabled={isPending}
-          className="mt-2 w-full"
-          onClick={() => {
-            logger.info("Login clicked");
-          }}
-        >
-          Login
-        </Button>
-      </form>
-    </FormProvider>
+          <Button
+            type="submit"
+            //progress={isPending}
+            //disabled={isPending}
+            className="mt-2 w-full"
+            onClick={() => {
+              logger.info("Login clicked");
+            }}
+          >
+            Login
+          </Button>
+        </form>
+      </FormProvider>
+    </>
   )
 }

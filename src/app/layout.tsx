@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" className="antialiased">
       <body className="pointer-events-auto">
         <Providers>
-          <div className={`${inter.variable} ${jet.variable}`}>
+          <div className={`${inter.variable} ${jet.variable} h-full w-full overflow-y-auto bg-atlas-background`}>
             {children}
           </div>
         </Providers>

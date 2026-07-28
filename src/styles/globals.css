@@ -42,6 +42,15 @@
   --font-jet-mono: var(--font-var-jet-mono);
 }
 
+@utility background-gradient-auth {
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(168, 107, 255, 0.07) 0%, transparent 65%);
+}
+
+@utility border-gradient-auth {
+  background: linear-gradient(90deg, transparent, rgba(168, 107, 255, 0.5), transparent);
+}
+
 @utility demo-table-grid {
   display: grid;
   grid-template-columns: 16px 1fr 72px 48px 36px;
