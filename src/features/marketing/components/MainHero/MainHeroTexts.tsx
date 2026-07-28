@@ -20,7 +20,7 @@ export const MainHeroTexts = () => {
   const runsToday = 12483;
 
   return (
-    <div className="flex flex-col px-16 py-20 items-start self-stretch justify-center border-b md:border-r border-atlas-main-border">
+    <div className="flex flex-col px-16 py-20 items-start self-stretch justify-center md:border-r md:border-atlas-main-border">
       <div className="flex w-fit pb-7 items-center gap-2">
         <div className="size-[6px] rounded-full pulse-green-dot"></div>
         <Text
@@ -30,7 +30,7 @@ export const MainHeroTexts = () => {
         </Text>
       </div>
       <Heading
-        size={1}
+        size={2}
         className="pb-6 font-inter text-foreground"
       >
         {"Run workflows."}

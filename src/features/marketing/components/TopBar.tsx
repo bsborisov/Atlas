@@ -31,7 +31,7 @@ export const TopBar = () => {
           />
         </span>
       </Link>
-      <div className="hidden lg:flex w-full gap-6 justify-center items-start">
+      <div className="hidden lg:flex lg:flex-1 gap-6 justify-center items-start">
         {
           topNavigation.map((item) => {
             const isActive =
@@ -43,13 +43,10 @@ export const TopBar = () => {
               <Link
                 key={item.title}
                 href={item.href}
-                className={`
-                    flex px-1 text-center text-[13px] font-inter font-medium leading-[150%]
-                    ${isActive
-                    ? 'text-top-nav-color-active'
-                    : 'text-top-nav-color hover:text-top-nav-color-active'
-                  }
-                  `}
+                className={`flex px-1 text-center text-[13px] font-inter font-medium leading-[150%] ${isActive
+                  ? 'text-top-nav-color-active'
+                  : 'text-top-nav-color hover:text-top-nav-color-active'
+                  }`}
               >
                 {item.title}
               </Link>

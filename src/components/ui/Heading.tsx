@@ -13,12 +13,12 @@ const TAGS = {
 type HeadingSize = keyof typeof TAGS;
 
 const HEADING_STYLES: Record<HeadingSize, string> = {
-  1: "text-[68px] font-inter font-extrabold tracking-[-2.72px] leading-[102%]",
-  2: "text-6xl font-inter font-extrabold tracking-tight leading-15",
-  3: "text-5xl font-inter font-extrabold tracking-normal leading-13",
-  4: "text-[40px] font-inter font-bold tracking-[-1.6px] leading-[100%]",
-  5: "text-[30px] font-inter font-bold tracking-[-1.2px] leading-[110%]",
-  6: "text-2xl font-inter font-bold tracking-wide leading-7",
+  1: "text-[72px] font-extrabold tracking-[-3.6px] leading-[100%]",
+  2: "text-[68px] font-extrabold tracking-[-2.72px] leading-[102%]",
+  3: "text-[50px] font-extrabold tracking-[-1.9px] leading-[105%]",
+  4: "text-[40px] font-bold tracking-[-1.6px] leading-[100%]",
+  5: "text-[30px] font-bold tracking-[-1.2px] leading-[110%]",
+  6: "text-[28px] font-medium tracking-[-0.56px] leading-[150%]",
 };
 
 interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -34,7 +34,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
       <Component
         ref={ref}
         className={cn(
-          `m-0 ${baseStyle}`,
+          `m-0 font-inter ${baseStyle}`,
           className
         )}
         {...props}

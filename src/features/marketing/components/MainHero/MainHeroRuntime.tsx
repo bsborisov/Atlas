@@ -29,7 +29,7 @@ export const MainHeroRuntime = () => {
   const statusColor = (s: string) => s === "ok" ? "text-app-light-green" : s === "err" ? "text-app-light-red" : "text-app-purple";
 
   return (
-    <div className="flex flex-col p-14 items-center self-stretch justify-center bg-atlas-background-light/[50%] border-b border-atlas-main-border">
+    <div className="flex flex-col p-14 items-center self-stretch justify-center bg-atlas-background-light/[50%]">
       <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-light">
         <div className="flex py-[10px] px-4 items-center gap-3 self-stretch border-b border-atlas-main-border">
           <div className="flex items-start gap-[5px]">

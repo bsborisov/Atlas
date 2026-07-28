@@ -8,13 +8,14 @@
   --main-border-active: rgb(52, 66, 91);
   --nav-color: rgb(103, 116, 138);
   --nav-color-active: rgb(156, 168, 189);
-
+  --app-dark-blue: rgb(23, 34, 56);
   --app-purple: rgb(168, 107, 255);
   --app-light-green: rgb(82, 217, 154);
   --app-green: rgb(40, 200, 64);
   --app-light-red: rgb(255, 107, 129);
   --app-red: rgb(255, 95, 87);
   --app-yellow: rgb(255, 189, 46);
+  --app-cyan: rgb(80, 207, 247)
 }
 
 @theme inline {
@@ -27,13 +28,14 @@
   --color-top-nav-color-active: var(--nav-color-active);
   --color-main-text: var(--nav-color);
   --color-main-text-active: var(--nav-color-active);
-
+  --color-app-dark-blue: var(--app-dark-blue);
   --color-app-purple: var(--app-purple);
   --color-app-light-green: var(--app-light-green);
   --color-app-green: var(--app-green);
   --color-app-light-red: var(--app-light-red);
   --color-app-red: var(--app-red);
   --color-app-yellow: var(--app-yellow);
+  --color-app-cyan: var(--app-cyan);
 
 
   --font-inter: var(--font-var-inter);
@@ -50,6 +52,9 @@
   grid-template-columns: 16px 1fr 72px 44px;
 }
 
+@utility linear-width003 {
+  transition: "width 0.03s linear"
+}
 
 @utility cursor-animation {
   animation: blink 1.1s step-end infinite
