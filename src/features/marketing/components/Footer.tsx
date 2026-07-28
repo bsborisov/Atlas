@@ -1,8 +1,8 @@
 "use client";
 
+import { AtlasLogo } from "@/components/shared/AtlasLogo";
 import { Text } from "@/components/ui/Text";
 import { footerNavigation } from "@/config/footerNavigation"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -12,19 +12,16 @@ export const Footer = () => {
 
   return (
     <div className="flex px-16 py-5 gap-8 items-center self-stretch">
-      <Link href={"/"}>
-        <span>
-          <Image
-            className="invert"
-            src="/atlas.svg"
-            alt="Atlas"
-            width={100}
-            height={20}
-            priority
-          />
-        </span>
+      <Link
+        href={"/"}
+        className="flex items-center gap-[9px]"
+      >
+        <AtlasLogo />
+        <Text className="text-[13px] font-semibold text-main-text-active">
+          Atlas
+        </Text>
       </Link>
-      <div className="flex flex-1 gap-6 items-start self-stretch">
+      <div className="flex flex-1 gap-6 items-center self-stretch">
         {
           footerNavigation.map((item) => {
             const isActive =
