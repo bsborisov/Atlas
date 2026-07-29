@@ -226,7 +226,6 @@ describe("auth actions", () => {
       name: "John Doe",
       email: "john@example.com",
       password: "password123",
-      confirmPassword: "password123",
     });
     expect(clearRateLimit).toHaveBeenCalledWith(
       "register:email:john@example.com"
