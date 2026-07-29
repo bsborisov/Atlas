@@ -3,6 +3,7 @@
 :root {
   --background: rgb(7, 10, 18);
   --background-light: rgb(13, 20, 34);
+  --background-blue: rgb(18, 28, 46);
   --foreground: rgb(247, 248, 252);
   --main-border: rgb(32, 44, 66);
   --main-border-active: rgb(52, 66, 91);
@@ -15,12 +16,14 @@
   --app-light-red: rgb(255, 107, 129);
   --app-red: rgb(255, 95, 87);
   --app-yellow: rgb(255, 189, 46);
-  --app-cyan: rgb(80, 207, 247)
+  --app-cyan: rgb(80, 207, 247);
+  --app-blue: rgb(108, 143, 255);
 }
 
 @theme inline {
   --color-atlas-background: var(--background);
   --color-atlas-background-light: var(--background-light);
+  --color-atlas-background-blue: var(--background-blue);
   --color-atlas-foreground: var(--foreground);
   --color-atlas-main-border: var(--main-border);
   --color-atlas-main-border-active: var(--main-border-active);
@@ -36,6 +39,7 @@
   --color-app-red: var(--app-red);
   --color-app-yellow: var(--app-yellow);
   --color-app-cyan: var(--app-cyan);
+  --color-app-blue: var(--app-blue);
 
 
   --font-inter: var(--font-var-inter);

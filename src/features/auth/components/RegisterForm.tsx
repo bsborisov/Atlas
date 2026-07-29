@@ -46,75 +46,78 @@ export default function RegisterForm() {
   }
 
   return (
-    <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormField
-          name="name"
-          type="text"
-          label={"Your Name"} //TODO translate
-          placeholder={"Your Name"}
-          autoComplete="name"
-          tabIndex={1}
-        />
-        <FormField
-          name="email"
-          type="email"
-          label={"Email address"} //TODO translate
-          placeholder={"Email address"}
-          autoComplete="email"
-          tabIndex={2}
-        />
-        <FormField
-          name="password"
-          type="password"
-          label={"Password"} //TODO translate
-          placeholder={"Password"}
-          autoComplete="current-password"
-          tabIndex={3}
-        />
-        {error && (
-          <div className="mb-4">
-            <Text className="mt-2 text-red">
-              {
-                form.formState.errors.email?.message &&
-                <p>
-                  {form.formState.errors.email?.message}
-                </p>
-              }
-              {
-                form.formState.errors.password?.message &&
-                <p>
-                  {form.formState.errors.password?.message}
-                </p>
-              }
-              {
-                error?.message &&
-                <p>
-                  {error.message}
-                </p>
-              }
-            </Text>
-          </div>
-        )}
+    <div className="relative w-full max-w-100 p-8 rounded-[18px] border border-atlas-main-border bg-atlas-background-light overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px border-gradient-auth"></div>
+      <FormProvider {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <FormField
+            name="name"
+            type="text"
+            label={"Your Name"} //TODO translate
+            placeholder={"Your Name"}
+            autoComplete="name"
+            tabIndex={1}
+          />
+          <FormField
+            name="email"
+            type="email"
+            label={"Email address"} //TODO translate
+            placeholder={"Email address"}
+            autoComplete="email"
+            tabIndex={2}
+          />
+          <FormField
+            name="password"
+            type="password"
+            label={"Password"} //TODO translate
+            placeholder={"Password"}
+            autoComplete="current-password"
+            tabIndex={3}
+          />
+          {error && (
+            <div className="mb-4">
+              <Text className="mt-2 text-red">
+                {
+                  form.formState.errors.email?.message &&
+                  <p>
+                    {form.formState.errors.email?.message}
+                  </p>
+                }
+                {
+                  form.formState.errors.password?.message &&
+                  <p>
+                    {form.formState.errors.password?.message}
+                  </p>
+                }
+                {
+                  error?.message &&
+                  <p>
+                    {error.message}
+                  </p>
+                }
+              </Text>
+            </div>
+          )}
 
-        <Button
-          type="submit"
-          //progress={isPending}
-          //disabled={isPending}
-          className="mt-2 w-full"
-          onClick={() => {
-            logger.info("Register clicked");
-          }}
-        >
-          Create account
-        </Button>
-        {
-          success &&
-          <p>
-            Account created
-          </p>
-        }
-      </form>
-    </FormProvider>
+          <Button
+            type="submit"
+            //progress={isPending}
+            //disabled={isPending}
+            className="mt-2 w-full"
+            onClick={() => {
+              logger.info("Register clicked");
+            }}
+          >
+            Create account
+          </Button>
+          {
+            success &&
+            <p>
+              Account created
+            </p>
+          }
+        </form>
+      </FormProvider>
+    </div>
   );
 }

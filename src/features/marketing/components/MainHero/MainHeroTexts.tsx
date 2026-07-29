@@ -31,7 +31,7 @@ export const MainHeroTexts = () => {
       </div>
       <Heading
         size={2}
-        className="pb-6 font-inter text-foreground"
+        className="pb-6 font-inter text-atlas-foreground"
       >
         {"Run workflows."}
         <br />

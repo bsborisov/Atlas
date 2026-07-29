@@ -88,7 +88,6 @@ export const FormFieldInput = forwardRef<HTMLInputElement, FormFieldInputType>((
       hasError={hasError}
       disabled={disabled}
       placeholder={placeholder ?? ""}
-      className="mt-2"
       {...rest}
     />
   );
@@ -123,7 +122,7 @@ function FormField({
 
 
   return (
-    <div className="mb-4">
+    <div>
       {label && (
         <label
           htmlFor={name}
@@ -144,6 +143,7 @@ function FormField({
         tabIndex={tabIndex}
         type={type}
         disabled={disabled}
+        hasError={!!error}
         placeholder={placeholder}
         autoFocus={autoFocus}
         autoComplete={autoComplete}
@@ -151,7 +151,7 @@ function FormField({
       />
 
       {(!suppressErrors && error) && (
-        <div className="mt-2 text-red">
+        <div className="mt-2 text-app-light-red text-[13px]">
           {error}
         </div>
       )}

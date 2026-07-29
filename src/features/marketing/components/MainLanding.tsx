@@ -31,7 +31,7 @@ const StatBox = ({
     <div className="flex flex-col py-10 px-12 items-start gap-2 self-stretch">
       <Heading
         size={4}
-        className="text-foreground font-jet-mono"
+        className="text-atlas-foreground font-jet-mono"
       >
         {value}
       </Heading>
@@ -92,7 +92,7 @@ export const MainLanding = () => {
             <Text className="font-bold text-sm text-main-text-active">N</Text>
           </div>
           <div className="flex flex-col items-start shrink-0">
-            <Text className="font-semibold text-[13px] text-foreground">
+            <Text className="font-semibold text-[13px] text-atlas-foreground">
               Nour Al-Hassan
             </Text>
             <Text className="text-xs">

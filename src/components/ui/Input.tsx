@@ -19,7 +19,7 @@ const InputHolder = ({
     <div
       className={cn(
         // Layout
-        "flex flex-row items-center gap-2 bg-input-background",
+        "flex flex-row items-center gap-2 bg-atlas-background-blue",
 
         // Shadow
         "shadow-[inset_0_0_0_1px_#F1F1F114]",
@@ -27,7 +27,7 @@ const InputHolder = ({
         "shadow-[inset_0_-1px_0_#0606067A]",
 
         // Size
-        isMultiSelect ? "h-fit" : "h-10",
+        isMultiSelect ? "h-fit" : "h-[42px]",
 
         // Width / spacing
         "w-full p-2 box-border",
@@ -36,7 +36,7 @@ const InputHolder = ({
         "border border-solid rounded-md",
 
         // Background
-        hasError ? "border-red-500" : "border-input-border",
+        hasError ? "border-app-light-red" : "border-atlas-main-border",
 
         // Cursor
         usePointer && "cursor-pointer",
@@ -73,10 +73,10 @@ const StyledInput = forwardRef<HTMLInputElement, InputProps>((
         `
       flex-auto h-full min-w-0 w-full m-0 border-0 p-0 rounded-[1px] outline-none box-border
 
-      text-white bg-transparent placeholder:text-white/60 
+      text-atlas-foreground/[50%] bg-transparent placeholder:text-atlas-foreground/[50%] 
       
       disabled:cursor-not-allowed 
-      disabled:text-white/40
+      disabled:text-atlas-foreground/[30%]
 
       not-first:ps-0
       not-last:pe-0
@@ -85,11 +85,9 @@ const StyledInput = forwardRef<HTMLInputElement, InputProps>((
       overflow-hidden
       whitespace-nowrap
 
-      font-montserrat
-      tracking-[0.0025em]
-      text-base
+      font-inter
+      text-[13px]
       font-normal
-      leading-6
       `,
 
         isMultiSelect && `

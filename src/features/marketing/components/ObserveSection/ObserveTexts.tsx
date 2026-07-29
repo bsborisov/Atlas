@@ -19,7 +19,7 @@ export const ObserveTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-foreground"
+        className="font-extrabold text-atlas-foreground"
       >
         {"Every step,"}
         <br />

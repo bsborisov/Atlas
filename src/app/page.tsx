@@ -12,7 +12,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="h-full bg-atlas-background text-foreground">
+    <div className="h-full bg-atlas-background text-atlas-foreground">
       <TopBar />
       <MainLanding />
     </div>

@@ -25,7 +25,7 @@ export const TopBar = () => {
         className="flex items-center gap-[9px]"
       >
         <AtlasLogo />
-        <Text className="text-sm text-foreground font-bold tracking-[-0.28px]">
+        <Text className="text-sm text-atlas-foreground font-bold tracking-[-0.28px]">
           Atlas
         </Text>
       </Link>

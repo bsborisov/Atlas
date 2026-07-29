@@ -19,7 +19,7 @@ export const BuildTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-foreground"
+        className="font-extrabold text-atlas-foreground"
       >
         {"Visual automation,"}
         <br />

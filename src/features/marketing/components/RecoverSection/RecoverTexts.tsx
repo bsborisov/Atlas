@@ -19,7 +19,7 @@ export const RecoverTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-foreground"
+        className="font-extrabold text-atlas-foreground"
       >
         {"AI explains the failure,"}
         <br />
