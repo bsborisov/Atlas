@@ -39,30 +39,29 @@ export async function getSessionUser() {
   }
 
 
-  const session =
-    await prisma.session.findUnique({
-
-      where: {
-        token
+  const session = await prisma.session.findUnique({
+    where: { token },
+    select: {
+      id: true,
+      expiresAt: true,
+      user: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
       },
-
-      include: {
-        user: true
-      }
-
-    });
+    },
+  });
 
 
   if (!session) {
     return null;
   }
 
-  if (session.expiresAt < new Date()) {
-
+  if (session.expiresAt <= new Date()) {
     await prisma.session.delete({
-      where: {
-        id: session.id
-      }
+      where: { id: session.id },
     });
 
     return null;
