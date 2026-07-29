@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import LoginForm from "./LoginForm";
 import { loginAction } from "@/features/auth/actions/auth";
 
@@ -9,15 +9,19 @@ vi.mock("@/features/auth/actions/auth", () => ({
 }));
 
 describe("LoginForm", () => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("renders all fields", () => {
     render(<LoginForm />);
 
     expect(
-      screen.getByLabelText(/email address/i)
+      screen.getByPlaceholderText(/email address/i)
     ).toBeInTheDocument();
 
     expect(
-      screen.getByLabelText(/^password$/i)
+      screen.getByPlaceholderText(/^password$/i)
     ).toBeInTheDocument();
 
     expect(
@@ -32,8 +36,8 @@ describe("LoginForm", () => {
 
     render(<LoginForm />);
 
-    const email = screen.getByLabelText(/email address/i);
-    const password = screen.getByLabelText(/^password$/i);
+    const email = screen.getByPlaceholderText(/email address/i);
+    const password = screen.getByPlaceholderText(/^password$/i);
 
     await user.type(email, "john@test.com");
     await user.type(password, "password123");
@@ -52,12 +56,12 @@ describe("LoginForm", () => {
     render(<LoginForm />);
 
     await user.type(
-      screen.getByLabelText(/email address/i),
+      screen.getByPlaceholderText(/email address/i),
       "john@test.com"
     );
 
     await user.type(
-      screen.getByLabelText(/^password$/i),
+      screen.getByPlaceholderText(/^password$/i),
       "password123"
     );
 
