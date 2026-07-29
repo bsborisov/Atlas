@@ -1,4 +1,4 @@
-import "server-only";
+"use server";
 
 import { createHash } from "node:crypto";
 import { prisma } from "@/lib/prisma";
