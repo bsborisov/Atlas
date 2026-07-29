@@ -1,33 +1,33 @@
 "use client";
 
-import { AuthUser } from "@/features/auth/types/auth";
+import { UserDto } from "@/features/auth/types/user.dto";
 import { createContext, ReactNode, useContext } from "react";
 
-const AuthContext = createContext<AuthUser | null>(null)
+const AuthContext = createContext<UserDto | null>(null)
 
 export const AuthProvider = ({
-    children, 
-    user
-}:{
-    children: ReactNode, 
-    user: AuthUser
+  children,
+  user
+}: {
+  children: ReactNode,
+  user: UserDto
 }) => {
-    
-    return (
-        <AuthContext.Provider value={user}>
-            {children}
-        </AuthContext.Provider>
-    )
+
+  return (
+    <AuthContext.Provider value={user}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 export function useAuth() {
-    const user = useContext(AuthContext);
+  const user = useContext(AuthContext);
 
-    if (user === null) {
-        throw new Error(
-            "useAuth must be used within AuthProvider."
-        );
-    }
+  if (user === null) {
+    throw new Error(
+      "useAuth must be used within AuthProvider."
+    );
+  }
 
-    return user;
+  return user;
 }
