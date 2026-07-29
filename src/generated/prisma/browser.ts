@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type Session = Prisma.SessionModel
+/**
+ * Model AuthRateLimit
+ * 
+ */
+export type AuthRateLimit = Prisma.AuthRateLimitModel
