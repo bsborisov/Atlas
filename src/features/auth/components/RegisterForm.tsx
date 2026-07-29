@@ -50,7 +50,7 @@ export default function RegisterForm() {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           name="name"
-          type="name"
+          type="text"
           label={"Your Name"} //TODO translate
           placeholder={"Your Name"}
           autoComplete="name"

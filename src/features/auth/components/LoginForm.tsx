@@ -30,6 +30,9 @@ export default function LoginForm() {
   });
 
   async function onSubmit(values: LoginSchema) {
+
+    setError(null);
+
     const result = await loginAction({
       email: values.email,
       password: values.password
@@ -103,8 +106,7 @@ export default function LoginForm() {
 
           <Button
             type="submit"
-            //progress={isPending}
-            //disabled={isPending}
+            loading={form.formState.isSubmitting}
             className="mt-2 w-full"
             onClick={() => {
               logger.info("Login clicked");

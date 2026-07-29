@@ -16,16 +16,7 @@ export type FormFieldType = {
   children?: ReactNode
 }
 
-export type FormFieldInputType = InputHTMLAttributes<HTMLInputElement> & {
-  name: string;
-  tabIndex?: number;
-  type: string;
-  disabled?: boolean;
-  hasError?: boolean;
-  placeholder?: string;
-  autoFocus?: boolean;
-  autoComplete?: HTMLInputAutoCompleteAttribute;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  ref?: React.Ref<HTMLInputElement>;
-}
+export type FormFieldInputType =
+  InputHTMLAttributes<HTMLInputElement> & {
+    hasError?: boolean;
+  }

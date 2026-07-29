@@ -92,7 +92,10 @@ export const logger = {
     }
 
 
-    if (!skipSentry) {
+    if (
+      process.env.NODE_ENV === "production" &&
+      !skipSentry
+    ) {
       captureSentry(error, sentryContext);
     }
   },
