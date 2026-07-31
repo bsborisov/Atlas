@@ -40,6 +40,7 @@ export async function registerUser(
     id: user.id,
     name: user.name,
     email: user.email,
+    image: user.image,
   };
 
 }
@@ -55,8 +56,9 @@ export async function loginUser(
     }
   });
 
-  if (!user)
+  if (!user?.passwordHash) {
     throw new Error("Invalid credentials");
+  }
 
   const valid = await verifyPassword(
     password,
@@ -69,7 +71,8 @@ export async function loginUser(
   return {
     id: user.id,
     email: user.email,
-    name: user.name
+    name: user.name,
+    image: user.image
   };
 
 }

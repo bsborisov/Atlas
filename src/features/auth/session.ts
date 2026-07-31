@@ -10,22 +10,42 @@ export async function createSession(
     crypto.randomBytes(32)
       .toString("hex");
 
+  const expiresAt =
+    new Date(
+      Date.now()
+      +
+      1000 * 60 * 60 * 24 * 7 //7days
+    )
 
   await prisma.session.create({
     data: {
       token,
       userId,
-      expiresAt:
-        new Date(
-          Date.now()
-          +
-          1000 * 60 * 60 * 24 * 7 //7days
-        )
+      expiresAt
     }
   });
 
-  return token;
+  return {
+    token,
+    expiresAt
+  };
 
+}
+
+export async function createAuthenticatedSession(
+  userId: string,
+): Promise<void> {
+  const session = await createSession(userId);
+
+  const cookieStore = await cookies();
+
+  cookieStore.set("session", session.token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    expires: session.expiresAt,
+  });
 }
 
 export async function getSessionUser() {
@@ -49,6 +69,7 @@ export async function getSessionUser() {
           id: true,
           name: true,
           email: true,
+          image: true,
         },
       },
     },

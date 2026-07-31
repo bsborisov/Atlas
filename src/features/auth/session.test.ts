@@ -49,9 +49,12 @@ describe("session service", () => {
       );
       vi.mocked(prisma.session.create).mockResolvedValue({} as never);
 
-      const token = await createSession("user-1");
+      const session = await createSession("user-1");
 
-      expect(token).toBe("a".repeat(64));
+      expect(session).toEqual({
+        token: "a".repeat(64),
+        expiresAt: new Date("2026-08-05T07:00:00.000Z"),
+      });
       expect(prisma.session.create).toHaveBeenCalledWith({
         data: {
           token: "a".repeat(64),
@@ -99,6 +102,7 @@ describe("session service", () => {
               id: true,
               name: true,
               email: true,
+              image: true,
             },
           },
         },

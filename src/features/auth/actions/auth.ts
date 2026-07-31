@@ -1,10 +1,16 @@
 "use server";
 
-import { cookies, headers } from "next/headers";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { loginSchema } from "@/features/auth/schemas/login.schema";
-import { loginUser, registerUser } from "@/features/auth/services/auth.service";
-import { createSession, destroySession } from "@/features/auth/session";
+import {
+  loginUser,
+  registerUser
+} from "@/features/auth/services/auth.service";
+import {
+  createAuthenticatedSession,
+  destroySession
+} from "@/features/auth/session";
 import { registerSchema } from "@/features/auth/schemas/register.schema";
 import {
   AUTH_RATE_LIMITS,
@@ -60,9 +66,15 @@ export async function registerAction(input: unknown): Promise<ActionResult> {
   }
 
   try {
+    const {
+      name,
+      password,
+    } = result.data;
+
     await registerUser({
-      ...result.data,
+      name,
       email: normalizedEmail,
+      password,
     });
 
     await clearRateLimit(emailKey);
@@ -115,19 +127,12 @@ export async function loginAction(input: unknown): Promise<ActionResult> {
   }
 
   try {
+
     const user = await loginUser(normalizedEmail, result.data.password);
-    const token = await createSession(user.id);
-    const cookieStore = await cookies();
 
-    cookieStore.set("session", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
-      maxAge: 60 * 60 * 24 * 7,
-      path: "/",
-    });
-
+    await createAuthenticatedSession(user.id);
     await clearRateLimit(emailKey);
+
   } catch (error) {
     logger.error(error, {
       tags: {

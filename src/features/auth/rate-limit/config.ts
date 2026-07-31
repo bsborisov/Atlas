@@ -7,6 +7,10 @@ export const AUTH_RATE_LIMITS = {
     limit: 5,
     windowMs: 15 * 60 * 1000,
   },
+  googleByIp: {
+    limit: 10,
+    windowMs: 15 * 60 * 1000,
+  },
   registerByIp: {
     limit: 5,
     windowMs: 60 * 60 * 1000,

@@ -11,7 +11,7 @@ export default async function AuthLayout({
 
   return (
     <div className="flex min-h-screen relative py-10 px-6 self-stretch items-center justify-center bg-atlas-background">
-      <div className="flex flex-col w-fit justify-center items-center">
+      <div className="flex flex-col w-full justify-center items-center">
         <div className="fixed inset-0 pointer-events-none">
           <div className="absolute top-[20%] left-[50%] w-175 h-125 background-gradient-auth"></div>
           <svg width="100%" height="100%" className="absolute opacity-2 inset-0">
