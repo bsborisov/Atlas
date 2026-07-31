@@ -5,8 +5,8 @@ import {
 } from "next/server";
 
 import {
-  googleClientId,
-  googleOAuthClient,
+  getGoogleClientId,
+  getGoogleOAuthClient,
 } from "@/features/auth/google/google-oauth";
 import {
   GoogleAccountConflictError,
@@ -70,6 +70,8 @@ export async function GET(
   }
 
   try {
+    const googleOAuthClient = getGoogleOAuthClient();
+    const googleClientId = getGoogleClientId();
     const { tokens } =
       await googleOAuthClient.getToken({
         code,

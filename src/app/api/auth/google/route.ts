@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { googleOAuthClient } from "@/features/auth/google/google-oauth";
+import { getGoogleOAuthClient } from "@/features/auth/google/google-oauth";
 import { CodeChallengeMethod } from "google-auth-library";
 
 const COOKIE_LIFETIME_SECONDS = 10 * 60;
@@ -15,7 +15,12 @@ const oauthCookieOptions = {
 };
 
 export async function GET(): Promise<NextResponse> {
-  const state = randomBytes(32).toString("base64url");
+  const googleOAuthClient =
+    getGoogleOAuthClient();
+
+  const state = randomBytes(32).toString(
+    "base64url",
+  );
 
   const {
     codeVerifier,

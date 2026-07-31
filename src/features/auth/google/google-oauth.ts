@@ -1,24 +1,42 @@
-import { OAuth2Client } from "google-auth-library";
+import {
+  OAuth2Client,
+} from "google-auth-library";
 
-function getRequiredEnvironmentVariable(name: string): string {
+function getRequiredEnvironmentVariable(
+  name: string,
+): string {
   const value = process.env[name];
 
   if (!value) {
-    throw new Error(`Missing environment variable: ${name}`);
+    throw new Error(
+      `Missing environment variable: ${name}`,
+    );
   }
 
   return value;
 }
 
-export const googleClientId =
-  getRequiredEnvironmentVariable("GOOGLE_CLIENT_ID");
+export function getGoogleClientId(): string {
+  return getRequiredEnvironmentVariable(
+    "GOOGLE_CLIENT_ID",
+  );
+}
 
-export const googleOAuthClient = new OAuth2Client({
-  clientId: googleClientId,
-  clientSecret: getRequiredEnvironmentVariable(
-    "GOOGLE_CLIENT_SECRET",
-  ),
-  redirectUri: `${getRequiredEnvironmentVariable(
-    "APP_URL",
-  )}/api/auth/google/callback`,
-});
+export function getGoogleOAuthClient(): OAuth2Client {
+  const clientId = getGoogleClientId();
+
+  const clientSecret =
+    getRequiredEnvironmentVariable(
+      "GOOGLE_CLIENT_SECRET",
+    );
+
+  const appUrl =
+    getRequiredEnvironmentVariable("APP_URL");
+
+  return new OAuth2Client({
+    clientId,
+    clientSecret,
+    redirectUri:
+      `${appUrl}/api/auth/google/callback`,
+  });
+}
