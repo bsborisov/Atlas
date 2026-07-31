@@ -1,13 +1,16 @@
+import { timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
+import { logger } from "@/lib/logger";
 import {
   type NextRequest,
   NextResponse,
 } from "next/server";
 
 import {
-  getGoogleClientId,
-  getGoogleOAuthClient,
-} from "@/features/auth/google/google-oauth";
+  createAppUrl,
+  exchangeGitHubCode,
+  getGitHubIdentity,
+} from "@/features/auth/github/github-oauth";
 
 import {
   OAuthAccountConflictError,
@@ -18,20 +21,24 @@ import {
   createAuthenticatedSession,
 } from "@/features/auth/session";
 
-function getAppUrl(): string {
-  const appUrl = process.env.APP_URL;
+function valuesMatch(
+  received: string,
+  expected: string,
+): boolean {
+  const receivedBuffer =
+    Buffer.from(received);
 
-  if (!appUrl) {
-    throw new Error(
-      "Missing environment variable: APP_URL",
-    );
-  }
+  const expectedBuffer =
+    Buffer.from(expected);
 
-  return appUrl.replace(/\/$/, "");
-}
-
-function createAppUrl(path: string): URL {
-  return new URL(path, getAppUrl());
+  return (
+    receivedBuffer.length ===
+    expectedBuffer.length &&
+    timingSafeEqual(
+      receivedBuffer,
+      expectedBuffer,
+    )
+  );
 }
 
 function loginErrorRedirect(
@@ -60,7 +67,7 @@ export async function GET(
 
   if (providerError) {
     return loginErrorRedirect(
-      "google_cancelled",
+      "github_cancelled",
     );
   }
 
@@ -68,20 +75,23 @@ export async function GET(
 
   const expectedState =
     cookieStore.get(
-      "google_oauth_state",
+      "github_oauth_state",
     )?.value;
 
   const codeVerifier =
     cookieStore.get(
-      "google_oauth_code_verifier",
+      "github_oauth_code_verifier",
     )?.value;
 
+  /*
+   * State and verifier are one-time values.
+   */
   cookieStore.delete(
-    "google_oauth_state",
+    "github_oauth_state",
   );
 
   cookieStore.delete(
-    "google_oauth_code_verifier",
+    "github_oauth_code_verifier",
   );
 
   if (
@@ -89,58 +99,30 @@ export async function GET(
     !state ||
     !expectedState ||
     !codeVerifier ||
-    state !== expectedState
+    !valuesMatch(state, expectedState)
   ) {
     return loginErrorRedirect(
-      "invalid_google_callback",
+      "invalid_github_callback",
     );
   }
 
   try {
-    const googleOAuthClient =
-      getGoogleOAuthClient();
-
-    const googleClientId =
-      getGoogleClientId();
-
-    const { tokens } =
-      await googleOAuthClient.getToken({
+    const accessToken =
+      await exchangeGitHubCode({
         code,
         codeVerifier,
       });
 
-    if (!tokens.id_token) {
-      throw new Error(
-        "Google did not return an ID token.",
-      );
-    }
-
-    const ticket =
-      await googleOAuthClient.verifyIdToken({
-        idToken: tokens.id_token,
-        audience: googleClientId,
-      });
-
-    const payload = ticket.getPayload();
-
-    if (
-      !payload?.sub ||
-      !payload.email ||
-      payload.email_verified !== true
-    ) {
-      throw new Error(
-        "Google identity is incomplete or unverified.",
-      );
-    }
+    const identity =
+      await getGitHubIdentity(accessToken);
 
     const user = await resolveOAuthUser({
-      provider: "google",
-      providerAccountId: payload.sub,
-      email: payload.email
-        .trim()
-        .toLowerCase(),
-      name: payload.name ?? payload.email,
-      image: payload.picture ?? null,
+      provider: "github",
+      providerAccountId:
+        identity.providerAccountId,
+      email: identity.email,
+      name: identity.name,
+      image: identity.image,
     });
 
     await createAuthenticatedSession(
@@ -160,8 +142,20 @@ export async function GET(
       );
     }
 
+    logger.error(error, {
+      tags: {
+        feature: "auth/github",
+      },
+      extra: [
+        [
+          "message",
+          "GitHub authentication failed",
+        ],
+      ],
+    });
+
     return loginErrorRedirect(
-      "google_auth_failed",
+      "github_auth_failed",
     );
   }
 }

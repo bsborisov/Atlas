@@ -1,3 +1,5 @@
+import "server-only";
+
 import {
   OAuth2Client,
 } from "google-auth-library";
