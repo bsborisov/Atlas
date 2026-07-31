@@ -111,8 +111,16 @@ export async function GET(
 
     await createAuthenticatedSession(user.id);
 
+    const appUrl = process.env.APP_URL;
+
+    if (!appUrl) {
+      throw new Error(
+        "Missing environment variable: APP_URL",
+      );
+    }
+
     return NextResponse.redirect(
-      new URL("/dashboard", request.url),
+      new URL("/dashboard", appUrl),
     );
   } catch (error) {
     if (error instanceof GoogleAccountConflictError) {
