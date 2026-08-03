@@ -1,3 +1,4 @@
+import Dot from "@/components/ui/Dot";
 import { Text } from "@/components/ui/Text"
 
 const edges = [
@@ -25,7 +26,7 @@ export const BuildGraph = () => {
             incident_intelligence
           </Text>
           <div className="flex items-center gap-[5px]">
-            <div className="flex flex-col items-start size-[5px] rounded-full bg-app-light-red"></div>
+            <Dot className="size-[5px] bg-app-light-red" />
             <Text className="font-jet-mono text-app-light-red whitespace-nowrap">
               1 error · step 5
             </Text>

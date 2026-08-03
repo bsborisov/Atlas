@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import Dot from "@/components/ui/Dot";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Play } from "lucide-react";
@@ -22,7 +23,7 @@ export const MainHeroTexts = () => {
   return (
     <div className="flex flex-col px-16 py-20 items-start self-stretch justify-center md:border-r md:border-atlas-main-border">
       <div className="flex w-fit pb-7 items-center gap-2">
-        <div className="size-[6px] rounded-full pulse-green-dot"></div>
+        <Dot className="size-[6px] pulse-green-dot" />
         <Text
           className="text-[11px] font-jet-mono"
         >

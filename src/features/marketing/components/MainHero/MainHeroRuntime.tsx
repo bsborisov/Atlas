@@ -4,17 +4,7 @@ import { Text } from "@/components/ui/Text"
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react"
 import { workflow_steps } from "../../config/static-data";
-
-const ColorDot = ({
-  className
-}: {
-  className?: string
-}) => {
-  return (
-    <div className={cn(`w-[9px] h-[9px] rounded-full bg-white`, className)}>
-    </div >
-  )
-}
+import Dot from "@/components/ui/Dot";
 
 export const MainHeroRuntime = () => {
   const [tick, setTick] = useState(0);
@@ -33,9 +23,9 @@ export const MainHeroRuntime = () => {
       <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-light">
         <div className="flex py-[10px] px-4 items-center gap-3 self-stretch border-b border-atlas-main-border">
           <div className="flex items-start gap-[5px]">
-            <ColorDot className="bg-app-red" />
-            <ColorDot className="bg-app-yellow" />
-            <ColorDot className="bg-app-green" />
+            <Dot className="bg-app-red" />
+            <Dot className="bg-app-yellow" />
+            <Dot className="bg-app-green" />
           </div>
           <Text
             className="w-full text-center font-jet-mono"
@@ -43,7 +33,7 @@ export const MainHeroRuntime = () => {
             incident_intelligence · run_01HZAQ7
           </Text>
           <div className="flex items-center gap-[5px]">
-            <div className="flex flex-col items-start size-[5px] rounded-full pulse-green-dot"></div>
+            <Dot className="size-[5px] pulse-green-dot" />
             <Text
               className="text-[9px] font-jet-mono font-semibold tracking-[0.9px] leading-[100%] text-app-light-green"
             >

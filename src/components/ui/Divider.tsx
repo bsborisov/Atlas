@@ -9,7 +9,7 @@ interface DividerProps {
 const Divider: React.FC<DividerProps> = ({ vertical, className = "" }) => {
   return (
     <div
-      className={cn(`bg-neutral-800 ${vertical
+      className={cn(`bg-atlas-main-border my-2 ${vertical
         ? 'w-px min-w-px'
         : 'h-px min-h-px'
         } ${className}`)}

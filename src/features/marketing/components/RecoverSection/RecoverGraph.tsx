@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import Dot from "@/components/ui/Dot";
 import { Text } from "@/components/ui/Text"
 import { RefreshCw } from "lucide-react";
 
@@ -32,7 +33,7 @@ export const RecoverGraph = () => {
       <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-light">
         <div className="flex py-[10px] px-4 items-center justify-between gap-3 self-stretch border-b border-atlas-main-border">
           <div className="flex items-center gap-[5px]">
-            <div className="flex flex-col items-start size-[5px] rounded-full bg-app-purple"></div>
+            <Dot className="size-[5px] bg-app-purple" />
             <Text className="font-jet-mono text-app-purple whitespace-nowrap">
               Atlas AI — diagnosis
             </Text>

@@ -1,23 +1,41 @@
 import {
-  AirVentIcon,
-  LayoutDashboardIcon,
-  ProjectorIcon
+  Activity,
+  LayoutDashboard,
+  Plug,
+  Settings,
+  Users,
+  Zap
 } from "lucide-react";
 
 export const sidebarNavigation = [
   {
     title: "Dashboard",
     href: "/dashboard",
-    icon: LayoutDashboardIcon
+    icon: LayoutDashboard
   },
   {
-    title: "Projects",
-    href: "/projects",
-    icon: ProjectorIcon
+    title: "Workflows",
+    href: "/workflows",
+    icon: Zap
   },
   {
-    title: "AI Workspace",
-    href: "/ai",
-    icon: AirVentIcon
+    title: "Executions",
+    href: "/executions",
+    icon: Activity
+  },
+  {
+    title: "Connections",
+    href: "/connections",
+    icon: Plug
+  },
+  {
+    title: "Team",
+    href: "/team",
+    icon: Users
+  },
+  {
+    title: "Settings",
+    href: "/settings",
+    icon: Settings
   },
 ];
