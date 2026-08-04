@@ -11,9 +11,8 @@ export function Text({
     <span
       {...props}
       className={cn(
-        `text-main-text text-[10px] 
-         leading-[150%] 
-         font-inter font-normal`,
+        `text-main-text text-[10px]`,
+        `font-inter font-normal`,
         className
       )}
     />

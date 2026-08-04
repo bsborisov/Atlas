@@ -19,18 +19,18 @@ export const ObserveTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-atlas-foreground"
+        className="text-atlas-foreground leading-[1.1] tracking-[-0.04em]"
       >
         {"Every step,"}
         <br />
         {"streamed in real time"}
       </Heading>
-      <Text className="pb-1 max-w-95 text-[14px]/[175%] text-main-text">
+      <Text className="pb-1 max-w-95 text-[14px]/[175%] text-main-text-active">
         {"As your workflow executes, Atlas streams every node's input, output, duration, and HTTP status. No black boxes. No waiting until the run completes."}
       </Text>
       <ul className="list-none p-0 m-0 flex flex-col gap-[10px]">
         {ADVANTAGES.map(adv => (
-          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text">
+          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text-active">
             <span className="text-app-light-green font-bold">✓</span>
             {adv}
           </li>

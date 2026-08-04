@@ -19,18 +19,18 @@ export const RecoverTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-atlas-foreground"
+        className="text-atlas-foreground leading-[1.1] tracking-[-0.04em]"
       >
         {"AI explains the failure,"}
         <br />
         {"you approve the fix"}
       </Heading>
-      <Text className="pb-1 max-w-95 text-[14px]/[175%] text-main-text">
+      <Text className="pb-1 max-w-95 text-[14px]/[175%] text-main-text-active">
         {"When a step fails, Atlas correlates status codes, logs, and third-party signals to diagnose root cause with a confidence score. Retry only the broken step — no duplicate work."}
       </Text>
       <ul className="list-none p-0 m-0 flex flex-col gap-[10px]">
         {ADVANTAGES.map(adv => (
-          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text">
+          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text-active">
             <span className="text-app-light-green font-bold">✓</span>
             {adv}
           </li>

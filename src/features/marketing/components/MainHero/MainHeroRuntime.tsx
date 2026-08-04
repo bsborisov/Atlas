@@ -61,7 +61,7 @@ export const MainHeroRuntime = () => {
             <div
               key={i}
               className={cn(
-                `demo-table-grid w-full items-center py-[5px] px-1 rounded-sm font-jet-mono text-[11px]`,
+                `demo-table-grid w-full items-center py-[5px] px-1 gap-[6px] rounded-sm font-jet-mono text-[11px]`,
                 i === visibleSteps.length - 1 ? "bg-white/[3%]" : "",
                 s.status === "err" ? "bg-app-red/[6%]" : ""
               )}

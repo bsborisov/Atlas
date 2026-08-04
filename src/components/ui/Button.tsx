@@ -99,6 +99,14 @@ const buttonVariants = cva(
           rounded-[7px]
           text-sm
         `,
+        xl: `
+          h-[48px]
+          py-0
+          px-[28px]
+          rounded-[7px]
+          text-[15px]
+          font-semibold
+        `,
 
         icon: `
           h-10

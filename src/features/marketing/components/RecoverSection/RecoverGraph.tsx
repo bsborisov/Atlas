@@ -30,7 +30,7 @@ export const RecoverGraph = () => {
 
   return (
     <div className="flex flex-col p-14 items-center self-stretch justify-center bg-atlas-background-light/[40%]">
-      <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-light">
+      <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-blue">
         <div className="flex py-[10px] px-4 items-center justify-between gap-3 self-stretch border-b border-atlas-main-border">
           <div className="flex items-center gap-[5px]">
             <Dot className="size-[5px] bg-app-purple" />
@@ -73,7 +73,7 @@ export const RecoverGraph = () => {
             </div>
           </div>
           <div className="flex self-stretch py-[10px] px-3 rounded-md bg-app-purple/[6%] border border-app-purple/[15%]">
-            <Text className="text-[11px] leading-[165%]">
+            <Text className="text-[11px] leading-[165%] text-main-text-active">
               {"PagerDuty experienced a regional degradation. Status page confirms incident "}
               <Text className="font-jet-mono text-app-cyan">
                 {"PDU-STATUS-2891"}

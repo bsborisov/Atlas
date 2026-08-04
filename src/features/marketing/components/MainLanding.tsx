@@ -35,9 +35,7 @@ const StatBox = ({
       >
         {value}
       </Heading>
-      <Text
-        className="text-xs"
-      >
+      <Text className="text-xs">
         {text}
       </Text>
     </div>

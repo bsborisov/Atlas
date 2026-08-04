@@ -27,22 +27,21 @@ export const BottomHero = () => {
       <Text className="text-[13px] text-center pt-[14px]">
         {"Free plan · Up to 3 workflows · No credit card"}
       </Text>
-      <div className="flex items-center justify-center pt-9 gap-3 self-stretch">
+      <div className="flex justify-center pt-9 gap-3 self-stretch">
         <Button
-          size="lg"
+          size="xl"
           variant="primary"
           onClick={redirectToLogin}
-          className="px-[28px]"
         >
           {
             "Get started free" //TODO translate
           }
         </Button>
         <Button
-          size="lg"
+          size="xl"
           variant="outline"
           onClick={redirectToDashboard}
-          className="px-[28px] text-main-text-active"
+          className="text-main-text-active"
         >
           {
             "Explore the demo →" //TODO translate

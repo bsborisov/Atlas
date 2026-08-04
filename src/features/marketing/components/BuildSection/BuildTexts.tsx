@@ -19,18 +19,18 @@ export const BuildTexts = () => {
       </Text>
       <Heading
         size={5}
-        className="font-extrabold text-atlas-foreground"
+        className="text-atlas-foreground leading-[1.1] tracking-[-0.04em]"
       >
         {"Visual automation,"}
         <br />
         {"no config files"}
       </Heading>
-      <Text className="pb-1 max-w-95 text-[14px]/[175%]">
+      <Text className="pb-1 max-w-95 text-[14px]/[175%] text-main-text-active">
         {"Connect triggers, data sources, AI models, and actions on a canvas. Conditional logic, loops, and human approvals are first-class nodes — not afterthoughts."}
       </Text>
       <ul className="list-none p-0 m-0 flex flex-col gap-[10px]">
         {ADVANTAGES.map(adv => (
-          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text">
+          <li key={adv} className="flex items-baseline gap-[10px] text-[13px] text-main-text-active">
             <span className="text-app-light-green font-bold">✓</span>
             {adv}
           </li>
