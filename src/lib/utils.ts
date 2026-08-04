@@ -17,3 +17,7 @@ export function getInitials(name: string): string {
     .map((part) => part.charAt(0).toUpperCase())
     .join("");
 }
+
+export function getFirstNameOnly(name: string): string {
+  return name.trim().split(/\s+/)[0] ?? "";
+}

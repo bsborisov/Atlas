@@ -54,6 +54,10 @@
   background: linear-gradient(135deg, #A86BFF, #6C3FD4);
 }
 
+@utility background-hero-gradient {
+  background: radial-gradient(circle, rgba(168, 107, 255, 0.06) 0%, transparent 70%);
+}
+
 @utility background-gradient-auth {
   transform: translateX(-50%);
   background: radial-gradient(ellipse, rgba(168, 107, 255, 0.07) 0%, transparent 65%);
@@ -93,24 +97,6 @@
   }
 }
 
-@utility pulse-green-dot {
-  animation: 2s ease 0s infinite normal none running pulse-green-dot-animation;
-}
-
-@keyframes pulse-green-dot-animation {
-  0% {
-    background: var(--app-light-green);
-  }
-
-  50% {
-    background: color-mix(in srgb, var(--app-light-green) 40%, transparent);
-  }
-
-  100% {
-    background: var(--app-light-green);
-  }
-}
-
 @utility node-pulse {
   animation: node-pulse-animation 2s ease-in-out infinite;
 }
@@ -137,8 +123,28 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Inter;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Inter;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #202C42;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #34425B;
+  }
 }

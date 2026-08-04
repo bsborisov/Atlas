@@ -1,5 +1,4 @@
 import { DashboardDetailsDto, DashboardMetricsDto, DashboardStatsDto } from "../types/dashboard.dto";
-import { CarIcon, CpuIcon, EarIcon, UsersRoundIcon } from "lucide-react";
 
 export async function getDashboardStats(): Promise<DashboardStatsDto> {
   // Simulate API/DB latency
@@ -9,25 +8,25 @@ export async function getDashboardStats(): Promise<DashboardStatsDto> {
     {
       title: "Online Users",
       value: 123,
-      icon: UsersRoundIcon,
+      icon: "users",
       iconBackground: "bg-dash-stats-card-gradient1",
     },
     {
       title: "Server Load",
       value: "87%",
-      icon: CpuIcon,
+      icon: "cpu",
       iconBackground: "bg-dash-stats-card-gradient2",
     },
     {
       title: "AI Workspace",
       value: 123,
-      icon: EarIcon,
+      icon: "ai",
       iconBackground: "bg-dash-stats-card-gradient3",
     },
     {
       title: "AI Car",
       value: 123,
-      icon: CarIcon,
+      icon: "car",
       iconBackground: "bg-dash-stats-card-gradient4",
     },
   ]

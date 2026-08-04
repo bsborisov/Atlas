@@ -33,7 +33,7 @@ export const MainHeroRuntime = () => {
             incident_intelligence · run_01HZAQ7
           </Text>
           <div className="flex items-center gap-[5px]">
-            <Dot className="size-[5px] pulse-green-dot" />
+            <Dot className="size-[5px] bg-app-light-green animate-pulse" />
             <Text
               className="text-[9px] font-jet-mono font-semibold tracking-[0.9px] leading-[100%] text-app-light-green"
             >

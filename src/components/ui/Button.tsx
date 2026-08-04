@@ -36,9 +36,11 @@ const buttonVariants = cva(
         `,
 
         secondary: `
-          bg-gray-100
-          text-gray-900
-          hover:bg-gray-200
+          bg-atlas-background-blue
+          text-main-text-active
+          border border-atlas-main-border
+          hover:bg-app-dark-blue
+          hover:text-atlas-foreground
         `,
 
         outline: `
@@ -84,7 +86,7 @@ const buttonVariants = cva(
         `,
 
         md: `
-          h-8
+          h-9
           py-0
           px-4
           text-sm
@@ -122,7 +124,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       className,
       variant,
-      size,
+      size = "md",
+      icon,
       fullWidth,
       loading,
       children,
@@ -148,7 +151,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
 
         {
-          loading && (
+          loading ? (
             <svg
               className="h-4 w-4 animate-spin"
               viewBox="0 0 24 24"
@@ -171,7 +174,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               />
 
             </svg>
-          )
+          ) : icon
         }
         {children}
       </button>

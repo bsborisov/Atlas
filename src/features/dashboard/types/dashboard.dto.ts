@@ -1,10 +1,9 @@
-import { LucideIcon } from "lucide-react";
 
 //Stats
 export interface DashboardStats {
   title: string,
   value: number | string,
-  icon: LucideIcon,
+  icon: string,
   iconBackground: string,
 };
 

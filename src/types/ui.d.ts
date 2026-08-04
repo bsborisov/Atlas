@@ -26,7 +26,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
   VariantProps<typeof buttonVariants> {
-  loading?: boolean
+  loading?: boolean;
+  icon?: React.ReactNode;
 }
 
 export type EyebrowProps = {

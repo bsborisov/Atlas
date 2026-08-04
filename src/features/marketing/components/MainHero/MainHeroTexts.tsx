@@ -23,7 +23,7 @@ export const MainHeroTexts = () => {
   return (
     <div className="flex flex-col px-16 py-20 items-start self-stretch justify-center md:border-r md:border-atlas-main-border">
       <div className="flex w-fit pb-7 items-center gap-2">
-        <Dot className="size-[6px] pulse-green-dot" />
+        <Dot className="size-[6px] bg-app-light-green animate-pulse" />
         <Text
           className="text-[11px] font-jet-mono"
         >

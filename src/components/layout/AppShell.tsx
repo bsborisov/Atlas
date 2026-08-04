@@ -11,10 +11,8 @@ export function AppShell({
       <Sidebar />
       <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
         <Header />
-        <main className="flex-1 px-6 py-8 overflow-y-auto overflow-x-hidden">
-          <div className="flex flex-col h-full">
-            {children}
-          </div>
+        <main className="w-full overflow-y-auto bg-atlas-background">
+          {children}
         </main>
       </div>
     </div>
