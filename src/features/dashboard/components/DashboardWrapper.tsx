@@ -1,9 +1,16 @@
 "use client";
 
-//import { DashboardDetailsDto, DashboardMetricsDto, DashboardStatsDto } from "../types/dashboard.dto"
+import {
+  DashboardActivityFeedDto,
+  DashboardExecutionsDto,
+  DashboardMainDataDto,
+  DashboardWorkflowsDto
+} from "../types/dashboard.dto"
 import { useAuth } from "@/providers/AuthProvider";
 import HeroPulseAndAIBrief from "./HeroPulseAndAIBrief";
 import DashboardHeader from "./DashboardHeader";
+import ExecutionsAndActivity from "./ExecutionsAndActivity";
+import WorkflowHealth from "./WorkflowHealth";
 
 function GridBackground() {
   return (
@@ -20,16 +27,17 @@ function GridBackground() {
   );
 }
 
-// export function DashboardWrapper({
-//   stats,
-//   metrics,
-//   details
-// }: {
-//   stats: DashboardStatsDto,
-//   metrics: DashboardMetricsDto,
-//   details: DashboardDetailsDto
-// }) { TODO add dynamic values
-export function DashboardWrapper() {
+export function DashboardWrapper({
+  mainData,
+  executions,
+  activityFeed,
+  workflows
+}: {
+  mainData: DashboardMainDataDto;
+  executions: DashboardExecutionsDto;
+  activityFeed: DashboardActivityFeedDto;
+  workflows: DashboardWorkflowsDto;
+}) {
   const user = useAuth();
 
   return (
@@ -38,9 +46,14 @@ export function DashboardWrapper() {
 
       <DashboardHeader user={user} />
 
-      <HeroPulseAndAIBrief />
+      <HeroPulseAndAIBrief mainData={mainData} />
 
+      <ExecutionsAndActivity
+        executions={executions}
+        activityFeed={activityFeed}
+      />
 
+      <WorkflowHealth workflows={workflows} />
 
 
 

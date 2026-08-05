@@ -1,19 +1,26 @@
 import { DashboardWrapper } from "@/features/dashboard";
-//import { getDashboardDetails, getDashboardMetrics, getDashboardStats } from "@/features/dashboard/services/dashboard.service";
+import {
+  getDashboardActivityFeed,
+  getDashboardExecutions,
+  getDashboardMainData,
+  getWorkflows,
+} from "@/features/dashboard/services/dashboard.service";
 
 
 export default async function DashboardPage() {
 
-  // const stats = await getDashboardStats();
-  // const metrics = await getDashboardMetrics();
-  // const details = await getDashboardDetails();//TODO dynamic
+  const mainData = await getDashboardMainData();
+  const executions = await getDashboardExecutions();
+  const activityFeed = await getDashboardActivityFeed();
+  const workflows = await getWorkflows();
 
   return (
 
     <DashboardWrapper
-    // stats={stats}
-    // metrics={metrics}
-    // details={details}//TODO dynamic
+      mainData={mainData}
+      executions={executions}
+      activityFeed={activityFeed}
+      workflows={workflows}
     />
 
   );

@@ -58,7 +58,7 @@ export const RecoverGraph = () => {
               <Text className="text-[11px]">
                 Root cause confidence
               </Text>
-              <Text className="font-bold text-jet-mono text-[13px] text-app-purple ">
+              <Text className="font-bold font-jet-mono text-[13px] text-app-purple ">
                 {rootConfidence}
                 {"%"}
               </Text>
@@ -89,7 +89,7 @@ export const RecoverGraph = () => {
                   className="flex py-[5px] px-2 self-stretch justify-between rounded-sm bg-white/[2%]"
                 >
                   <Text className="text-[11px]">{s.stat}</Text>
-                  <Text className="text-jet-mono text-[11px] text-main-text-active">{s.value}</Text>
+                  <Text className="font-jet-mono text-[11px] text-main-text-active">{s.value}</Text>
                 </div>
               ))
             }

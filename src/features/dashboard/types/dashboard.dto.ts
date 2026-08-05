@@ -1,81 +1,47 @@
 
-//Stats
-export interface DashboardStats {
-  title: string,
-  value: number | string,
-  icon: string,
-  iconBackground: string,
+//MainData
+export type DashboardMainDataDto = {
+  label: string;
+  value: number;
+  sub: string;
+  color: string;
+  decimals?: number;
+  suffix?: string;
+  separator?: string;
+}[];
+
+//Executions
+export type DashboardExecutionsDto = {
+  id: string;
+  workflow: string;
+  status: string;
+  duration: string;
+  steps: string;
+  time: string;
+  env: string;
+}[];
+
+
+//ActivityFeed
+export type DashboardActivityFeedDto = {
+  time: string;
+  msg: string;
+  type: string;
+}[];
+
+export interface DashboardWorkflowDto {
+  id: string;
+  name: string;
+  status: "draft" | "active" | "paused" | "failed";
+  successRate: number;
+  executions: number;
+  lastRun: string;
+  owner: string;
+  version: string;
+  services: string[];
+  sparkline: number[];
+  description: string;
+  tags: string[];
 };
 
-export type DashboardStatsDto = DashboardStats[]
-
-//Metrics
-export interface MetricChartPointUsers {
-  month: string;
-  users: number;
-}
-
-export interface MetricChartPointSales {
-  name: string;
-  sales: number;
-}
-
-export interface MetricChartPointSubs {
-  stat: string;
-  value: number;
-}
-
-export interface MetricCardCardDataDto {
-  title: string;
-  value: string;
-}
-
-export interface MetricCardDtoUsers {
-  cardData: MetricCardCardDataDto;
-  chartData: MetricChartPointUsers[];
-}
-
-export interface MetricCardDtoSales {
-  cardData: MetricCardCardDataDto;
-  chartData: MetricChartPointSales[];
-}
-
-export interface MetricCardDtoSubs {
-  cardData: MetricCardCardDataDto;
-  chartData: MetricChartPointSubs[];
-}
-
-export interface DashboardMetricsDto {
-  users: MetricCardDtoUsers;
-  sales: MetricCardDtoSales;
-  subscriptions: MetricCardDtoSubs;
-}
-
-
-//Details
-export interface DetailsChartPointRevenue {
-  month: string;
-  revenue: number;
-  users: number;
-}
-
-export interface DetailsChartPointInvestments {
-  name: string;
-  value: number;
-  fill: string;
-}
-
-export interface DetailsCardDtoRevenue {
-  cardData: MetricCardCardDataDto;
-  chartData: DetailsChartPointRevenue[];
-}
-
-export interface DetailsCardDtoInvestments {
-  cardData: MetricCardCardDataDto;
-  chartData: DetailsChartPointInvestments[];
-}
-
-export interface DashboardDetailsDto {
-  revenue: DetailsCardDtoRevenue;
-  investments: DetailsCardDtoInvestments;
-}
+export type DashboardWorkflowsDto = DashboardWorkflowDto[];

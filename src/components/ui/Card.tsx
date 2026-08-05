@@ -1,17 +1,17 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type CardType = {
+function Card({
+  children,
+  className = ""
+}: {
   children: ReactNode;
   className?: string;
-}
-
-function Card({ children, className = "" }: CardType) {
+}) {
   return (
     <div
       className={cn(
-        `relative p-6 rounded-xl overflow-hidden`,
-        `border border-atlas-main-border bg-atlas-background-light`,
+        `rounded-xl border border-atlas-main-border bg-atlas-background-light`,
         className
       )}
     >

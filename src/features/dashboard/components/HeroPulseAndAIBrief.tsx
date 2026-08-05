@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { AlertCircle, Eye, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import CountUp from "react-countup";
+import { DashboardMainDataDto } from "../types/dashboard.dto";
 
 const WAVEFORM_BARS = [
   0.42, 0.55, 0.68, 0.76, 0.88, 0.94, 0.82, 0.97,
@@ -47,68 +48,17 @@ function WaveformViz() {
   );
 }
 
-const HeroPulseAndAIBrief = () => {
+const HeroPulseAndAIBrief = ({
+  mainData
+}: {
+  mainData: DashboardMainDataDto
+}) => {
   const { push } = useRouter();
-
-  const DISPLAY_ITEMS = [
-    {
-      label: "Executions",
-      value: (
-        <CountUp
-          start={0}
-          end={12483}
-          duration={1}
-          separator=","
-        />
-      ),
-      sub: "last 24h",
-      color: "text-atlas-foreground",
-    },
-    {
-      label: "Success Rate",
-      value: (
-        <CountUp
-          start={0}
-          end={98.7}
-          duration={1}
-          decimals={1}
-          suffix="%"
-        />
-      ),
-      sub: "↑ 0.3% vs yesterday",
-      color: "text-app-light-green",
-    },
-    {
-      label: "Avg Duration",
-      value: (
-        <CountUp
-          start={0}
-          end={842}
-          duration={1}
-          suffix="ms"
-        />
-      ),
-      sub: "↓ 12ms vs yesterday",
-      color: "text-app-cyan",
-    },
-    {
-      label: "Active Workflows",
-      value: (
-        <CountUp
-          start={0}
-          end={18}
-          duration={1}
-        />
-      ),
-      sub: "2 paused",
-      color: "text-app-purple",
-    },
-  ];
 
   return (
     <div className="grid grid-cols-[1fr_340px] mb-4 gap-4">
       {/* Atlas System Pulse */}
-      <Card>
+      <Card className="relative p-6 overflow-hidden">
         <div className="absolute top-0 right-0 size-75 background-hero-gradient pointer-events-none" />
         <div className="flex mb-5 items-start justify-between">
           <div>
@@ -141,26 +91,47 @@ const HeroPulseAndAIBrief = () => {
         </div>
 
         <div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {DISPLAY_ITEMS.map(({ label, value, sub, color }, index) => (
-            <div key={`display-${index}`}>
-              <Text className="mb-[6px] font-semibold uppercase tracking-[0.06em]">
-                {label}
-              </Text>
-              <Heading
-                size={6}
-                className={cn(
-                  `mb-1 font-jet-mono`,
+          {
+            mainData.map(
+              (
+                {
+                  label,
+                  value,
+                  sub,
                   color,
-                  `tracking-[-0.04em] leading-none`
-                )}
-              >
-                {value}
-              </Heading>
-              <div className="text-[11px] text-main-text">
-                {sub}
-              </div>
-            </div>
-          ))}
+                  decimals = 0,
+                  suffix = "",
+                  separator = "",
+                },
+                index
+              ) => (
+                <div key={`display-${index}`}>
+                  <Text className="mb-[6px] font-semibold uppercase tracking-[0.06em]">
+                    {label}
+                  </Text>
+                  <Heading
+                    size={6}
+                    className={cn(
+                      `mb-1 font-jet-mono`,
+                      color,
+                      `tracking-[-0.04em] leading-none`
+                    )}
+                  >
+                    <CountUp
+                      start={0}
+                      end={value}
+                      duration={1}
+                      decimals={decimals}
+                      suffix={suffix}
+                      separator={separator}
+                    />
+                  </Heading>
+                  <div className="text-[11px] text-main-text">
+                    {sub}
+                  </div>
+                </div>
+              ))
+          }
         </div>
 
         <div>
@@ -172,7 +143,7 @@ const HeroPulseAndAIBrief = () => {
       </Card>
 
       {/* AI Brief */}
-      <Card className="p-5">
+      <Card className="relative p-5 overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-px border-gradient-auth" />
         <div className="flex gap-2 mb-[14px] items-center">
           <div className="flex size-7 rounded-[7px] items-center justify-center border border-app-purple/[25%] bg-app-purple/[12%]">

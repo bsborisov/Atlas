@@ -23,7 +23,7 @@ const DashboardHeader = ({ user }: { user: UserDto }) => {
             size={4}
             className="mb-1 text-[22px] text-atlas-foreground tracking-[-0.03em]"
           >
-            {`Good morning, ${getFirstNameOnly(user.name)}.`}
+            {`Hello, ${getFirstNameOnly(user.name)}.`}
           </Heading>
         }
         <p className="text-[13px] text-main-text-active">

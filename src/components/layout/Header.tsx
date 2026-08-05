@@ -23,7 +23,7 @@ function Kbd({
   children: React.ReactNode
 }) {
   return (
-    <span className="py-px px-[5px] rounded-sm text-jet-mono text-[10px] text-main-text border border-atlas-main-border-active">
+    <span className="py-px px-[5px] rounded-sm font-jet-mono text-[10px] text-main-text border border-atlas-main-border-active">
       {children}
     </span>
   );

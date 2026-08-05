@@ -5,6 +5,7 @@
   --background-inner: rgb(9, 14, 24);
   --background-light: rgb(13, 20, 34);
   --background-blue: rgb(18, 28, 46);
+  --background-light-blue: rgb(52, 66, 91);
   --foreground: rgb(247, 248, 252);
   --main-border: rgb(32, 44, 66);
   --main-border-active: rgb(52, 66, 91);
@@ -27,6 +28,7 @@
   --color-atlas-background-inner: var(--background-inner);
   --color-atlas-background-light: var(--background-light);
   --color-atlas-background-blue: var(--background-blue);
+  --color-atlas-background-light-blue: var(--background-light-blue);
   --color-atlas-foreground: var(--foreground);
   --color-atlas-main-border: var(--main-border);
   --color-atlas-main-border-active: var(--main-border-active);
