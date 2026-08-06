@@ -1,4 +1,3 @@
-
 //MainData
 export type DashboardMainDataDto = {
   label: string;
@@ -28,20 +27,3 @@ export type DashboardActivityFeedDto = {
   msg: string;
   type: string;
 }[];
-
-export interface DashboardWorkflowDto {
-  id: string;
-  name: string;
-  status: "draft" | "active" | "paused" | "failed";
-  successRate: number;
-  executions: number;
-  lastRun: string;
-  owner: string;
-  version: string;
-  services: string[];
-  sparkline: number[];
-  description: string;
-  tags: string[];
-};
-
-export type DashboardWorkflowsDto = DashboardWorkflowDto[];

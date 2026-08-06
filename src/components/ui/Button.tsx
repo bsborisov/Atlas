@@ -75,11 +75,11 @@ const buttonVariants = cva(
 
       size: {
         a: `w-auto h-8 p-2 text-sm`,
-        xs: `h-7 px-2.5 text-[10.5px] gap-1.5`,
-        sm: `h-6 py-0 px-3 text-sm`,
-        md: `h-9 py-0 px-4 text-sm`,
-        lg: `h-[42px] py-0 px-[22px] rounded-[7px] text-sm`,
-        xl: `h-[48px] py-0 px-[28px] rounded-[7px] text-[15px] font-semibold`,
+        xs: `h-[25px] px-[9px] text-[10.5px] gap-[7px]`,
+        sm: `h-6 px-3 text-xs`,
+        md: `h-[32px] px-[14px] text-xs rounded-[10px]`,
+        lg: `h-[42px] px-[22px] rounded-[7px] text-sm`,
+        xl: `h-[48px] px-[28px] rounded-[7px] text-[15px] font-semibold`,
         icon: `h-10 w-10 p-0`,
       },
 

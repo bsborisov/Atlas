@@ -31,7 +31,7 @@ export const Sidebar = () => {
       <div className={cn(
         `flex min-h-16 py-4`,
         collapsed ? 'px-0' : 'px-4',
-        `items-center gap-[10px]`,
+        `items-center gap-2.5`,
         `border-b border-atlas-main-border`,
       )}>
         <Link href={'/dashboard'}>
@@ -42,7 +42,7 @@ export const Sidebar = () => {
             <div className="text-[13px] font-bold text-atlas-foreground tracking-[-0.02em]">Atlas</div>
             <button
               onClick={() => setWsOpen(!wsOpen)}
-              className="flex gap-[3px] p-0 items-center text-[10px] text-main-text bg-none border-none cursor-pointer"
+              className="flex gap-0.75 p-0 items-center text-[10px] text-main-text bg-none border-none cursor-pointer"
             >
               Atlas Labs / Production <ChevronDown size={10} />
             </button>
@@ -51,13 +51,13 @@ export const Sidebar = () => {
       </div>
 
       {wsOpen && !collapsed && (
-        <div className="absolute top-16 left-4 right-4 p-[6px] border border-atlas-main-border-active rounded-[10px] z-50 bg-atlas-background-blue">
+        <div className="absolute top-16 left-4 right-4 p-1.5 border border-atlas-main-border-active rounded-[10px] z-50 bg-atlas-background-blue">
           {WORKSPACES.map((ws) => (
             <div
               key={ws}
               onClick={() => setWsOpen(false)}
               className={cn(
-                `flex py-[7px] px-[10px] rounded-[7px] text-xs`,
+                `flex py-1.75 px-2.5 rounded-[7px] text-xs`,
                 ws.includes("Production") ? `text-atlas-foreground font-semibold` : `text-main-text-active font-normal`,
                 `items-center justify-between cursor-pointer hover:bg-app-dark-blue`
               )}
@@ -68,7 +68,7 @@ export const Sidebar = () => {
           <Divider />
           <Link
             href="/workflows"
-            className="flex py-[7px] px-[10px] gap-[6px] rounded-[7px] text-xs text-main-text-active items-center cursor-pointer hover:bg-app-dark-blue">
+            className="flex py-1.75 px-2.5 gap-1.5 rounded-[7px] text-xs text-main-text-active items-center cursor-pointer hover:bg-app-dark-blue">
             <Plus size={12} /> New workspace
           </Link>
         </div>
@@ -82,25 +82,25 @@ export const Sidebar = () => {
               key={index}
               href={href}
               className={cn(
-                `flex w-full relative gap-[10px] text-[13px] items-center`,
+                `flex w-full relative gap-2.5 text-[13px] items-center`,
                 collapsed
-                  ? `py-[9px] px-0 justify-center`
-                  : `py-[9px] px-[10px] justify-start`,
+                  ? `py-2.25 px-0 justify-center`
+                  : `py-2.25 px-2.5 justify-start`,
                 isActive
-                  ? `text-app-purple font-semibold bg-app-purple/[12%]`
+                  ? `text-app-purple font-semibold bg-app-purple/12`
                   : `text-main-text-active font-normal bg-transparent`,
                 `rounded-lg border-none cursor-pointer`,
                 `transition-all duration-120`,
-                !isActive ? `hover:!text-atlas-foreground` : ``
+                !isActive ? `hover:text-atlas-foreground!` : ``
               )}
             >
               {isActive && (
-                <div className="absolute left-0 top-1/2 w-[2.5px] h-4 bg-app-purple rounded-r-[2px] -translate-y-1/2" />
+                <div className="absolute left-0 top-1/2 w-[2.5px] h-4 bg-app-purple rounded-r-xs -translate-y-1/2" />
               )}
               <Icon size={15} className="shrink-0" />
               {!collapsed && title}
               {!collapsed && href === "/executions" && (
-                <span className="ml-auto py-0 px-[5px] rounded-sm text-[10px] font-bold text-app-light-red border border-app-light-red/[20%] bg-app-light-red/[12%]">
+                <span className="ml-auto py-0 px-1.25 rounded-sm text-[10px] font-bold text-app-light-red border border-app-light-red/20 bg-app-light-red/12">
                   1
                 </span>
               )}
@@ -116,11 +116,11 @@ export const Sidebar = () => {
         <button
           onClick={() => setCollapsed(!collapsed)}
           className={cn(
-            `flex w-full py-[6px] px-[8px] gap-[6px] items-center`,
+            `flex w-full py-1.5 px-2 gap-1.5 items-center`,
             `text-[11px] text-main-text`,
             `border-none bg-transparent cursor-pointer`,
             collapsed ? `justify-center` : `justify-end`,
-            `hover:!text-main-text-active`
+            `hover:text-main-text-active!`
           )}
         >
           {!collapsed && "Collapse"} {collapsed ? <ChevronRight size={13} /> : <ChevronLeft size={13} />}

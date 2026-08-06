@@ -69,6 +69,15 @@
   background: linear-gradient(90deg, transparent, rgba(168, 107, 255, 0.5), transparent);
 }
 
+@utility background-workflows-template {
+  background: linear-gradient(135deg, rgba(168, 107, 255, 0.08), rgba(80, 207, 247, 0.06))
+}
+
+@utility background-workflows-display {
+  background: linear-gradient(135deg, rgb(168, 107, 255), rgb(108, 63, 212))
+}
+
+
 @utility demo-table-grid {
   display: grid;
   grid-template-columns: 16px 1fr 72px 48px 36px;

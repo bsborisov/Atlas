@@ -1,16 +1,16 @@
 import Card from "@/components/ui/Card";
 import { useRouter } from "next/navigation";
-import { DashboardWorkflowsDto } from "../types/dashboard.dto";
 import { Button } from "@/components/ui/Button";
 import { ChevronRight } from "lucide-react";
 import StatusBadge from "@/components/ui/StatusBadge";
 import { cn } from "@/lib/utils";
 import Sparkline from "@/components/ui/Sparkline";
+import { WorkflowDto } from "@/features/workflows/types/workflows.dto";
 
 const WorkflowHealth = ({
   workflows
 }: {
-  workflows: DashboardWorkflowsDto
+  workflows: WorkflowDto[]
 }) => {
   const { push } = useRouter();
 
