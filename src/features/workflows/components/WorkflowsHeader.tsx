@@ -12,7 +12,7 @@ const WorkflowsHeader = ({ workflows }: { workflows: WorkflowDto[]; }) => {
       <div>
         <Heading
           size={4}
-          className="mb-[3px] text-[20px] text-atlas-foreground tracking-[-0.03em]"
+          className="mb-0.75 text-[20px] text-atlas-foreground tracking-[-0.03em]"
         >
           Workflows
         </Heading>

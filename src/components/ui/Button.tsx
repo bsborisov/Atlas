@@ -57,10 +57,18 @@ const buttonVariants = cva(
           hover:text-atlas-foreground
         `,
 
-        danger: `
-          bg-red-600
-          text-white
-          hover:bg-red-700
+        destructive: `
+          bg-app-light-red/12 
+          text-app-light-red 
+          border border-app-light-red/20 
+          hover:bg-app-light-red/20
+        `,
+
+        warning: `
+          bg-app-light-yellow/12 
+          text-app-light-yellow 
+          border border-app-light-yellow/20
+          hover:bg-app-light-yellow/20
         `,
 
         gradient: `
@@ -75,8 +83,8 @@ const buttonVariants = cva(
 
       size: {
         a: `w-auto h-8 p-2 text-sm`,
-        xs: `h-[25px] px-[9px] text-[10.5px] gap-[7px]`,
-        sm: `h-6 px-3 text-xs`,
+        xs: `h-[25px] px-[9px] text-[10.5px] gap-[7px] rounded-[10px]`,
+        sm: `h-7 px-3 text-[10.5px] gap-1.5 rounded-[10px]`,
         md: `h-[32px] px-[14px] text-xs rounded-[10px]`,
         lg: `h-[42px] px-[22px] rounded-[7px] text-sm`,
         xl: `h-[48px] px-[28px] rounded-[7px] text-[15px] font-semibold`,

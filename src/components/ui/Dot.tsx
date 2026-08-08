@@ -6,7 +6,7 @@ const Dot = ({
   className?: string
 }) => {
   return (
-    <span className={cn(`w-[9px] h-[9px] rounded-full bg-atlas-foreground`, className)} />
+    <span className={cn(`size-2.25 rounded-full bg-atlas-foreground`, className)} />
   )
 }
 

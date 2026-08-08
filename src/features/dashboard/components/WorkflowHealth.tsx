@@ -32,12 +32,12 @@ const WorkflowHealth = ({
               key={wf.id}
               onClick={() => push(`/workflow-detail/${wf.id}`)}
               className={cn(
-                `py-[14px] px-4 rounded-[10px] cursor-pointer`,
+                `py-3.5 px-4 rounded-[10px] cursor-pointer`,
                 `border border-atlas-main-border bg-atlas-background-blue`,
                 `hover:border-atlas-background-light-blue transition-colors`
               )}
             >
-              <div className="flex mb-[10px] items-start justify-between">
+              <div className="flex mb-2.5 items-start justify-between">
                 <div className="text-xs font-semibold text-atlas-foreground">
                   {wf.name}
                 </div>

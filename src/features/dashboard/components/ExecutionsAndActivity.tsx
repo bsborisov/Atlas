@@ -30,7 +30,7 @@ const ExecutionsAndActivity = ({
           <div className="text-[13px] font-semibold text-atlas-foreground">
             Recent Executions
           </div>
-          <div className="flex gap-[6px]">
+          <div className="flex gap-1.5">
             <Button
               variant="ghost"
               size="xs"
@@ -68,9 +68,9 @@ const ExecutionsAndActivity = ({
                   onClick={() => push(`/workflow/${r.id}`)}
                   className={cn(
                     `cursor-pointer`,
-                    r.status === "failed" ? `bg-app-light-red/[3%]` : `bg-transparent`,
+                    r.status === "failed" ? `bg-app-light-red/3` : `bg-transparent`,
                     `hover:bg-app-dark-blue transition-colors`,
-                    `[&>td]:py-[11px] [&>td]:px-4`
+                    `[&>td]:py-2.75 [&>td]:px-4`
                   )}
                 >
                   <td
@@ -117,11 +117,11 @@ const ExecutionsAndActivity = ({
           {activityFeed.map((item, i) => (
             <div
               key={i}
-              className="flex py-2 px-4 gap-[10px] cursor-pointer hover:bg-app-dark-blue"
+              className="flex py-2 px-4 gap-2.5 cursor-pointer hover:bg-app-dark-blue"
             >
               <Dot
                 className={cn(
-                  `size-[6px] mt-[5px] shrink-0`,
+                  `size-1.5 mt-1.25 shrink-0`,
                   item.type === "error"
                     ? `bg-app-light-red`
                     : item.type === "warning"
@@ -132,13 +132,13 @@ const ExecutionsAndActivity = ({
               <div className="flex-1">
                 <div
                   className={cn(
-                    `text-xs leading-[1.5]`,
+                    `text-xs leading-normal`,
                     item.type === "error" ? `text-app-light-red` : `text-main-text-active`
                   )}
                 >
                   {item.msg}
                 </div>
-                <div className="text-[10px] text-main-text mt-[2px] font-jet-mono">
+                <div className="text-[10px] text-main-text mt-0.5 font-jet-mono">
                   {item.time}
                 </div>
               </div>
