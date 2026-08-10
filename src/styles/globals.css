@@ -83,6 +83,10 @@
   grid-template-columns: 16px 1fr 72px 48px 36px;
 }
 
+@utility executions-table-grid {
+  grid-template-columns: 1fr 140px 80px 72px 56px 64px;
+}
+
 @utility demo-table-grid-observe {
   display: grid;
   grid-template-columns: 16px 1fr 72px 44px;
@@ -105,6 +109,24 @@
 
   50% {
     opacity: 0
+  }
+}
+
+@utility animate-pulse-live {
+  animation: pulse-live 1.5s ease-in-out infinite
+}
+
+@keyframes pulse-live {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1)
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8)
   }
 }
 

@@ -35,3 +35,12 @@ export type EyebrowProps = {
   dotClasses?: string;
   className?: string;
 }
+
+export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  items: {
+    value: string;
+    label: string;
+    disabled?: boolean;
+  }[];
+  className?: string;
+}
