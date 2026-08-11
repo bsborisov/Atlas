@@ -1,4 +1,4 @@
-import { ExecutionsDto } from "../types/executions.dto";
+import { ExecutionsDto, LiveLogsDto, RunStepsDto, WorkflowNodesDto } from "../types/executions.dto";
 
 export async function getExecutions(): Promise<ExecutionsDto[]> {
   // Later this becomes Prisma queries
@@ -22,6 +22,55 @@ export async function getExecutions(): Promise<ExecutionsDto[]> {
     { id: "run_01HZAP3", workflow: "churn_detection", status: "success", started: "8h ago", duration: "3.88s", steps: 7, trigger: "webhook", env: "prod" },
     { id: "run_01HZAP2", workflow: "slack_digest", status: "success", started: "9h ago", duration: "190ms", steps: 3, trigger: "schedule", env: "prod" },
     { id: "run_01HZAP1", workflow: "invoice_sync", status: "success", started: "10h ago", duration: "1.04s", steps: 5, trigger: "schedule", env: "prod" },
+  ]
+
+}
+
+export async function getLiveLogs(): Promise<LiveLogsDto[]> {
+  // Later this becomes Prisma queries
+
+  await new Promise((resolve) => setTimeout(resolve, 170));
+
+  return [
+    { id: 1, time: "14:32:00.012", level: "INFO", msg: "Test run started · run_01JAZ9" },
+    { id: 2, time: "14:32:00.018", level: "INFO", msg: "Webhook received · POST /webhooks/intake · 218 bytes" },
+    { id: 3, time: "14:32:00.022", level: "DEBUG", msg: "Payload validated · schema: incident_v2" },
+    { id: 4, time: "14:32:00.060", level: "INFO", msg: "Normalize payload complete · 42ms" },
+    { id: 5, time: "14:32:00.062", level: "INFO", msg: "Calling claude-sonnet-4-6 · risk_scoring_v3" },
+    { id: 6, time: "14:32:00.065", level: "DEBUG", msg: "Tool: fetch_cmdb_context · host=api.acme.com" },
+    { id: 7, time: "14:32:00.210", level: "DEBUG", msg: "Streaming tokens… severity=P1, confidence=0.92" },
+  ]
+
+}
+
+export async function getWorkflowNodes(): Promise<WorkflowNodesDto[]> {
+  // Later this becomes Prisma queries
+
+  await new Promise((resolve) => setTimeout(resolve, 170));
+
+  return [
+    { id: "n1", label: "Webhook received", type: "trigger", x: 60, y: 160 },
+    { id: "n2", label: "Normalize payload", type: "data", x: 280, y: 160 },
+    { id: "n3", label: "Risk scoring", type: "ai", x: 500, y: 160 },
+    { id: "n4", label: "Severity ≥ P1", type: "logic", x: 720, y: 160 },
+    { id: "n5", label: "Create incident", type: "action", x: 940, y: 100 },
+    { id: "n6", label: "Notify on-call", type: "human", x: 1160, y: 100 },
+  ]
+
+}
+
+export async function getRunSteps(): Promise<RunStepsDto[]> {
+  // Later this becomes Prisma queries
+
+  await new Promise((resolve) => setTimeout(resolve, 110));
+
+  return [
+    { nodeId: "n1", label: "Webhook received", duration: "18ms", status: "success" },
+    { nodeId: "n2", label: "Normalize payload", duration: "42ms", status: "success" },
+    { nodeId: "n3", label: "Risk scoring", duration: "—", status: "running" },
+    { nodeId: "n4", label: "Severity ≥ P1", duration: "—", status: "queued" },
+    { nodeId: "n5", label: "Create incident", duration: "—", status: "queued" },
+    { nodeId: "n6", label: "Notify on-call", duration: "—", status: "queued" },
   ]
 
 }
