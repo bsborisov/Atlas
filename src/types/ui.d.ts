@@ -30,6 +30,10 @@ export interface ButtonProps
   icon?: React.ReactNode;
 }
 
+export interface CloseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+}
+
 export type EyebrowProps = {
   text: string;
   dotClasses?: string;

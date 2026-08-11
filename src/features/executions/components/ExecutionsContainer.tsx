@@ -10,6 +10,7 @@ import { Play, RefreshCw, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ExecutionsDto } from "../types/executions.dto";
+import CloseButton from "@/components/ui/CloseButton";
 
 export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
   const [search, setSearch] = useState("");
@@ -260,16 +261,7 @@ export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
                 >
                   {selected.status === "failed" ? "View failure" : "View run"}
                 </Button>
-                <button
-                  onClick={() => setSelected(null)}
-                  className={cn(
-                    "flex size-7 rounded-md items-center justify-center",
-                    "bg-none border border-atlas-main-border",
-                    "cursor-pointer text-main-text"
-                  )}
-                >
-                  {"×"}
-                </button>
+                <CloseButton onClick={() => setSelected(null)} />
               </div>
             </div>
             <div className="flex-1 p-4 overflow-y-auto">
