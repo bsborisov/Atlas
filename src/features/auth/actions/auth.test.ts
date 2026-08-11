@@ -295,7 +295,7 @@ describe("auth actions", () => {
     });
 
     it("logs and returns a registration service error", async () => {
-      const error = new Error("User already exists");
+      const error = new Error("Unable to create an account with these details.");
 
       registerSafeParseMock.mockReturnValue({
         success: true,
@@ -319,7 +319,7 @@ describe("auth actions", () => {
       expect(result).toEqual({
         success: false,
         error: {
-          message: "User already exists",
+          message: "Unable to create an account with these details.",
         },
       });
 

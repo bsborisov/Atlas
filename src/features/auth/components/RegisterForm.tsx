@@ -64,11 +64,11 @@ export default function RegisterForm() {
         <Text className="flex pt-1 text-[13px]">
           Start building automations in minutes.
         </Text>
-        <div className="flex flex-col shrink-0 items-start pt-6 gap-[9px] self-stretch">
+        <div className="flex flex-col shrink-0 items-start pt-6 gap-2.25 self-stretch">
           <Button
             size="lg"
             variant="outline"
-            className="flex w-full items-center justify-center gap-[10px] text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
+            className="flex w-full items-center justify-center gap-2.5 text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
             onClick={signupWithGoogle}
           >
             <svg width="17" height="17" viewBox="0 0 18 18">
@@ -82,7 +82,7 @@ export default function RegisterForm() {
           <Button
             size="lg"
             variant="outline"
-            className="flex w-full items-center justify-center gap-[10px] text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
+            className="flex w-full items-center justify-center gap-2.5 text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
             onClick={signupWithGithub}
           >
             <svg width="17" height="17" viewBox="0 0 16 16" className="fill-main-text-active" fill="currentColor">
@@ -91,14 +91,14 @@ export default function RegisterForm() {
             Continue with GitHub
           </Button>
         </div>
-        <div className="flex items-center gap-3 pt-[18px]">
+        <div className="flex items-center gap-3 pt-4.5">
           <div className="flex-1 h-px bg-atlas-main-border" />
           <Text className="text-[11px]">or continue with email</Text>
           <div className="flex-1 h-px bg-atlas-main-border" />
         </div>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="flex flex-col pt-[18px] pb-4 gap-[9px]">
+            <div className="flex flex-col pt-4.5 pb-4 gap-2.25">
               <FormField
                 name="name"
                 type="text"
@@ -117,7 +117,7 @@ export default function RegisterForm() {
                 name="password"
                 type="password"
                 placeholder={"Password"}
-                autoComplete="current-password"
+                autoComplete="new-password"
                 tabIndex={3}
               />
             </div>
@@ -135,7 +135,7 @@ export default function RegisterForm() {
             <Button
               type="submit"
               loading={form.formState.isSubmitting}
-              className="w-full mb-[18px]"
+              className="w-full mb-4.5"
               onClick={() => {
                 logger.info("Register clicked");
               }}
@@ -156,7 +156,7 @@ export default function RegisterForm() {
           {"Already have an account? "}
           <Link
             href={"/login"}
-            className="text-app-purple hover:text-app-purple/[80%]"
+            className="text-app-purple hover:text-app-purple/80"
           >
             Log in
           </Link>

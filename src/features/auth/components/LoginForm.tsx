@@ -61,11 +61,11 @@ export default function LoginForm() {
         <Text className="flex pt-1 text-[13px]">
           Sign in to your Atlas workspace.
         </Text>
-        <div className="flex flex-col shrink-0 items-start pt-6 gap-[9px] self-stretch">
+        <div className="flex flex-col shrink-0 items-start pt-6 gap-2.25 self-stretch">
           <Button
             size="lg"
             variant="outline"
-            className="flex w-full items-center justify-center gap-[10px] text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
+            className="flex w-full items-center justify-center gap-2.5 text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
             onClick={loginWithGoogle}
           >
             <svg width="17" height="17" viewBox="0 0 18 18">
@@ -79,7 +79,7 @@ export default function LoginForm() {
           <Button
             size="lg"
             variant="outline"
-            className="flex w-full items-center justify-center gap-[10px] text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
+            className="flex w-full items-center justify-center gap-2.5 text-[13px] bg-atlas-background-blue rounded-[10px] cursor-pointer transition-colors duration-120"
             onClick={loginWithGithub}
           >
             <svg width="17" height="17" viewBox="0 0 16 16" className="fill-main-text-active" fill="currentColor">
@@ -88,14 +88,14 @@ export default function LoginForm() {
             Continue with GitHub
           </Button>
         </div>
-        <div className="flex items-center gap-3 pt-[18px]">
+        <div className="flex items-center gap-3 pt-4.5">
           <div className="flex-1 h-px bg-atlas-main-border" />
           <Text className="text-[11px]">or continue with email</Text>
           <div className="flex-1 h-px bg-atlas-main-border" />
         </div>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <div className="flex flex-col pt-[18px] gap-[9px]">
+            <div className="flex flex-col pt-4.5 gap-2.25">
               <FormField
                 name="email"
                 type="email"
@@ -124,7 +124,7 @@ export default function LoginForm() {
             <div className="flex flex-col pt-2 pb-4 items-end self-stretch">
               <Link
                 href={"/forgot-password"}
-                className="text-xs text-app-purple hover:text-app-purple/[80%]"
+                className="text-xs text-app-purple hover:text-app-purple/80"
               >
                 Forgot password?
               </Link>
@@ -132,7 +132,7 @@ export default function LoginForm() {
             <Button
               type="submit"
               loading={form.formState.isSubmitting}
-              className="w-full mb-[18px]"
+              className="w-full mb-4.5"
               onClick={() => {
                 logger.info("Login clicked");
               }}
@@ -144,14 +144,14 @@ export default function LoginForm() {
                 {"By continuing you agree to our "}
                 <Link
                   href={"/terms"}
-                  className="text-app-blue hover:text-app-blue/[80%]"
+                  className="text-app-blue hover:text-app-blue/80"
                 >
                   Terms
                 </Link>
                 {" and "}
                 <Link
                   href={"/privacy-policy"}
-                  className="text-app-blue hover:text-app-blue/[80%]"
+                  className="text-app-blue hover:text-app-blue/80"
                 >
                   Privacy Policy
                 </Link>
@@ -165,7 +165,7 @@ export default function LoginForm() {
           {"Don't have an account? "}
           <Link
             href={"/register"}
-            className="text-app-purple hover:text-app-purple/[80%]"
+            className="text-app-purple hover:text-app-purple/80"
           >
             Sign up
           </Link>

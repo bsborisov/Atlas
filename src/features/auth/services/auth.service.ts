@@ -22,7 +22,7 @@ export async function registerUser(
 
 
   if (existingUser)
-    throw new Error("User already exists");
+    throw new Error("Unable to create an account with these details.");
 
 
   const passwordHash = await hashPassword(data.password);

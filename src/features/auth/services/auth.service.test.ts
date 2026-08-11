@@ -118,7 +118,7 @@ describe("auth service", () => {
           email: "john@example.com",
           password: "password123",
         }),
-      ).rejects.toThrow("User already exists");
+      ).rejects.toThrow("Unable to create an account with these details.");
 
       expect(hashPasswordMock).not.toHaveBeenCalled();
       expect(createUserMock).not.toHaveBeenCalled();
