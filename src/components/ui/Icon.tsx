@@ -52,7 +52,7 @@ export function StyledSvg({
       {...props}
       className={cn(
         "table transition-colors duration-200 outline-none",
-        mirroring && "rtl:[transform:rotateY(180deg)]",
+        mirroring && "rtl:transform-[rotateY(180deg)]",
         "[&>svg]:table-cell [&>svg]:align-middle",
         className
       )}

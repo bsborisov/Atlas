@@ -11,12 +11,20 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { ExecutionsDto } from "../types/executions.dto";
 import CloseButton from "@/components/ui/CloseButton";
+import { useExecutions } from "../queries/execution-queries";
 
-export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
+export const Executions = ({ executions: initialExecutions }: { executions: ExecutionsDto[] }) => {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [wfFilter, setWfFilter] = useState<string>("all");
-  const [selected, setSelected] = useState<typeof executions[0] | null>(null);
+  const [selected, setSelected] = useState<ExecutionsDto | null>(null);
+
+  const {
+    data: executions = [],
+    isFetching,
+    refetch,
+    error,
+  } = useExecutions(initialExecutions);
 
   const { push } = useRouter();
 
@@ -79,8 +87,27 @@ export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
             variant="primary"
             size="sm"
             icon={<Play size={13} />}
-            onClick={() => push("/live-run")}>
+            onClick={() => push("/live-run")}
+          >
             Watch live run
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            icon={
+              <RefreshCw
+                size={13}
+                className={
+                  isFetching
+                    ? "animate-spin"
+                    : ""
+                }
+              />
+            }
+            disabled={isFetching}
+            onClick={() => refetch()}
+          >
+            Refresh
           </Button>
         </div>
 
@@ -151,6 +178,12 @@ export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
         </div>
       </div>
 
+      {error && (
+        <div className="mx-8 mt-4 rounded-lg border border-app-light-red/30 bg-app-light-red/5 p-3 text-xs text-app-light-red">
+          Failed to refresh executions.
+        </div>
+      )}
+
       {/* Table */}
       <div className="flex flex-1 mt-4 mx-8 mb-0 gap-0 overflow-hidden">
         {/* Run list */}
@@ -164,7 +197,7 @@ export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
           {/* Table header */}
           <div
             className={cn(
-              "grid executions-table-grid gap-3",
+              "executions-table-grid gap-3",
               "py-2.5 px-4 border-b border-atlas-main-border",
               "bg-atlas-background-blue"
             )}
@@ -185,7 +218,7 @@ export const Executions = ({ executions }: { executions: ExecutionsDto[] }) => {
                 key={run.id}
                 onClick={() => setSelected(selected?.id === run.id ? null : run)}
                 className={cn(
-                  "grid executions-table-grid gap-3 py-2.5 px-4",
+                  "executions-table-grid gap-3 py-2.5 px-4",
                   " border-b border-atlas-main-border cursor-pointer",
                   selected?.id === run.id ? "bg-app-purple/6" : "bg-transparent",
                   "transition-colors duration-100"

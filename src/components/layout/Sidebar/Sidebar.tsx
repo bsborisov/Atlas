@@ -73,7 +73,7 @@ export const Sidebar = () => {
           </Link>
         </div>
       )}
-      <nav style={{ flex: 1, padding: "8px 8px", overflowY: "auto" }}>
+      <nav className="flex-1 p-2 overflow-y-auto">
         {sidebarNavigation.map(({ href, title, icon: Icon }, index) => {
           const isActive = pathname === href || pathname.startsWith(`${href}/`)
 

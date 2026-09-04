@@ -20,15 +20,15 @@ export const ObserveGraph = () => {
   };
 
   return (
-    <div className="flex flex-col p-14 items-center self-stretch justify-center bg-atlas-background-light/[40%] md:border-r md:border-atlas-main-border">
+    <div className="flex flex-col p-14 items-center self-stretch justify-center bg-atlas-background-light/40 md:border-r md:border-atlas-main-border">
       <div className="flex flex-col w-full items-start rounded-[10px] border border-atlas-main-border bg-atlas-background-blue">
-        <div className="flex py-[10px] px-4 items-center justify-between gap-3 self-stretch border-b border-atlas-main-border">
+        <div className="flex py-2.5 px-4 items-center justify-between gap-3 self-stretch border-b border-atlas-main-border">
           <Text
             className="font-jet-mono"
           >
             execution timeline
           </Text>
-          <div className="flex items-center gap-[5px]">
+          <div className="flex items-center gap-1.25">
             <Text
               className="font-jet-mono text-app-light-green"
             >
@@ -36,7 +36,7 @@ export const ObserveGraph = () => {
             </Text>
           </div>
         </div>
-        <div className="flex flex-col py-2 px-0 items-start self-stretch divide-y divide-atlas-main-border/[40%]">
+        <div className="flex flex-col py-2 px-0 items-start self-stretch divide-y divide-atlas-main-border/40">
           {workflow_steps.map((s, i) => {
             const pct =
               s.ms
@@ -54,8 +54,8 @@ export const ObserveGraph = () => {
               <div
                 key={i}
                 className={cn(
-                  `demo-table-grid-observe w-full items-center py-[6px] px-4 gap-2 rounded-sm font-jet-mono text-[11px]`,
-                  s.status === "err" ? "bg-app-red/[6%]" : ""
+                  `demo-table-grid-observe w-full items-center py-1.5 px-4 gap-2 rounded-sm font-jet-mono text-[11px]`,
+                  s.status === "err" ? "bg-app-red/6" : ""
                 )}
               >
                 <span className={cn(
@@ -75,9 +75,9 @@ export const ObserveGraph = () => {
                 )}>
                   {s.step}
                 </span>
-                <div className="h-1 bg-white/[5%] rounded-[2px] overflow-hidden">
+                <div className="h-1 bg-white/5 rounded-xs overflow-hidden">
                   <div
-                    className={`h-full ${col} opacity-50 rounded-[2px]`}
+                    className={`h-full ${col} opacity-50 rounded-xs`}
                     style={{ width: `${pct}%` }}
                   />
                 </div>

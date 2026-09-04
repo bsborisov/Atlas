@@ -89,19 +89,25 @@
 }
 
 @utility executions-table-grid {
+  display: grid;
   grid-template-columns: 1fr 140px 80px 72px 56px 64px;
 }
 
 @utility team-table-grid {
+  display: grid;
   grid-template-columns: 1fr 200px 100px 120px 80px;
 }
-
-
 
 @utility demo-table-grid-observe {
   display: grid;
   grid-template-columns: 16px 1fr 72px 44px;
 }
+
+@utility apikeys-table-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px 80px 64px;
+}
+
 
 @utility linear-width003 {
   transition: "width 0.03s linear"

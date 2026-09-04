@@ -70,7 +70,7 @@ export const Team = ({ members }: { members: MembersDto[] }) => {
             </div>
             <div className="rounded-[10px] border border-atlas-main-border divide-y divide-atlas-main-border bg-atlas-background-light overflow-hidden">
               {/* Header */}
-              <div className="grid team-table-grid py-2.5 px-4 gap-3 bg-atlas-background-blue">
+              <div className="team-table-grid py-2.5 px-4 gap-3 bg-atlas-background-blue">
                 {["Member", "Email", "Role", "Last active", ""].map(h => (
                   <Text key={h} className="font-jet-mono tracking-[0.06em]">{h}</Text>
                 ))}
@@ -80,7 +80,7 @@ export const Team = ({ members }: { members: MembersDto[] }) => {
                   key={m.email}
                   onClick={() => setSelectedMember(selectedMember?.email === m.email ? null : m)}
                   className={cn(
-                    "grid team-table-grid py-2.5 px-4 gap-3 cursor-pointer items-center transition-colors duration-100",
+                    "team-table-grid py-2.5 px-4 gap-3 cursor-pointer items-center transition-colors duration-100",
                     selectedMember?.email === m.email ? "bg-app-purple/4" : "bg-transparent"
                   )}
                 >
